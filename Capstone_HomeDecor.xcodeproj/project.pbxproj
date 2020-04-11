@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3AACCF8B0CEA24DFBDFA559A /* Pods_Capstone_HomeDecor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4890A03200EC83055D21469B /* Pods_Capstone_HomeDecor.framework */; };
 		B52E244024423C5200E7D19B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E243F24423C5200E7D19B /* AppDelegate.swift */; };
 		B52E244224423C5200E7D19B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E244124423C5200E7D19B /* ViewController.swift */; };
 		B52E244424423C5200E7D19B /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = B52E244324423C5200E7D19B /* Experience.rcproject */; };
 		B52E244724423C5200E7D19B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B52E244524423C5200E7D19B /* Main.storyboard */; };
 		B52E244924423C5500E7D19B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B52E244824423C5500E7D19B /* Assets.xcassets */; };
 		B52E244C24423C5500E7D19B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B52E244A24423C5500E7D19B /* LaunchScreen.storyboard */; };
+		B52E24542442406800E7D19B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B52E24532442406800E7D19B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		29BB0F998A672CD05A1DCD0E /* Pods-Capstone_HomeDecor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capstone_HomeDecor.release.xcconfig"; path = "Target Support Files/Pods-Capstone_HomeDecor/Pods-Capstone_HomeDecor.release.xcconfig"; sourceTree = "<group>"; };
+		4890A03200EC83055D21469B /* Pods_Capstone_HomeDecor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Capstone_HomeDecor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B52E243C24423C5200E7D19B /* Capstone_HomeDecor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capstone_HomeDecor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B52E243F24423C5200E7D19B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B52E244124423C5200E7D19B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +28,8 @@
 		B52E244824423C5500E7D19B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B52E244B24423C5500E7D19B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B52E244D24423C5500E7D19B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B52E24532442406800E7D19B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C7301CA5219BDEA656A13A79 /* Pods-Capstone_HomeDecor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capstone_HomeDecor.debug.xcconfig"; path = "Target Support Files/Pods-Capstone_HomeDecor/Pods-Capstone_HomeDecor.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AACCF8B0CEA24DFBDFA559A /* Pods_Capstone_HomeDecor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		699834F34DFBEDDBCB03FF88 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C7301CA5219BDEA656A13A79 /* Pods-Capstone_HomeDecor.debug.xcconfig */,
+				29BB0F998A672CD05A1DCD0E /* Pods-Capstone_HomeDecor.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		B52E243324423C5200E7D19B = {
 			isa = PBXGroup;
 			children = (
 				B52E243E24423C5200E7D19B /* Capstone_HomeDecor */,
 				B52E243D24423C5200E7D19B /* Products */,
+				699834F34DFBEDDBCB03FF88 /* Pods */,
+				CE0F811399F0D2E45C0D90EB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,8 +82,17 @@
 				B52E244824423C5500E7D19B /* Assets.xcassets */,
 				B52E244A24423C5500E7D19B /* LaunchScreen.storyboard */,
 				B52E244D24423C5500E7D19B /* Info.plist */,
+				B52E24532442406800E7D19B /* GoogleService-Info.plist */,
 			);
 			path = Capstone_HomeDecor;
+			sourceTree = "<group>";
+		};
+		CE0F811399F0D2E45C0D90EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4890A03200EC83055D21469B /* Pods_Capstone_HomeDecor.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B52E245024423C5500E7D19B /* Build configuration list for PBXNativeTarget "Capstone_HomeDecor" */;
 			buildPhases = (
+				76314D0D2572251A5DCF7A06 /* [CP] Check Pods Manifest.lock */,
 				B52E243824423C5200E7D19B /* Sources */,
 				B52E243924423C5200E7D19B /* Frameworks */,
 				B52E243A24423C5200E7D19B /* Resources */,
+				549B0D8EC6CBF7F6D0775ADF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,12 +156,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				B52E244C24423C5500E7D19B /* LaunchScreen.storyboard in Resources */,
+				B52E24542442406800E7D19B /* GoogleService-Info.plist in Resources */,
 				B52E244924423C5500E7D19B /* Assets.xcassets in Resources */,
 				B52E244724423C5200E7D19B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		549B0D8EC6CBF7F6D0775ADF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Capstone_HomeDecor/Pods-Capstone_HomeDecor-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Capstone_HomeDecor/Pods-Capstone_HomeDecor-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Capstone_HomeDecor/Pods-Capstone_HomeDecor-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		76314D0D2572251A5DCF7A06 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Capstone_HomeDecor-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B52E243824423C5200E7D19B /* Sources */ = {
@@ -282,6 +355,7 @@
 		};
 		B52E245124423C5500E7D19B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7301CA5219BDEA656A13A79 /* Pods-Capstone_HomeDecor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +374,7 @@
 		};
 		B52E245224423C5500E7D19B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29BB0F998A672CD05A1DCD0E /* Pods-Capstone_HomeDecor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
