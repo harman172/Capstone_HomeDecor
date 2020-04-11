@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		B52E244924423C5500E7D19B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B52E244824423C5500E7D19B /* Assets.xcassets */; };
 		B52E244C24423C5500E7D19B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B52E244A24423C5500E7D19B /* LaunchScreen.storyboard */; };
 		B52E24542442406800E7D19B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B52E24532442406800E7D19B /* GoogleService-Info.plist */; };
+		F22E8BE7244249EE008915FE /* LoginRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22E8BE6244249EE008915FE /* LoginRegisterVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		B52E244D24423C5500E7D19B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B52E24532442406800E7D19B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C7301CA5219BDEA656A13A79 /* Pods-Capstone_HomeDecor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capstone_HomeDecor.debug.xcconfig"; path = "Target Support Files/Pods-Capstone_HomeDecor/Pods-Capstone_HomeDecor.debug.xcconfig"; sourceTree = "<group>"; };
+		F22E8BE6244249EE008915FE /* LoginRegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRegisterVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +52,6 @@
 				C7301CA5219BDEA656A13A79 /* Pods-Capstone_HomeDecor.debug.xcconfig */,
 				29BB0F998A672CD05A1DCD0E /* Pods-Capstone_HomeDecor.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -75,6 +76,7 @@
 		B52E243E24423C5200E7D19B /* Capstone_HomeDecor */ = {
 			isa = PBXGroup;
 			children = (
+				F22E8BE6244249EE008915FE /* LoginRegisterVC.swift */,
 				B52E243F24423C5200E7D19B /* AppDelegate.swift */,
 				B52E244124423C5200E7D19B /* ViewController.swift */,
 				B52E244324423C5200E7D19B /* Experience.rcproject */,
@@ -214,6 +216,7 @@
 				B52E244224423C5200E7D19B /* ViewController.swift in Sources */,
 				B52E244024423C5200E7D19B /* AppDelegate.swift in Sources */,
 				B52E244424423C5200E7D19B /* Experience.rcproject in Sources */,
+				F22E8BE7244249EE008915FE /* LoginRegisterVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
