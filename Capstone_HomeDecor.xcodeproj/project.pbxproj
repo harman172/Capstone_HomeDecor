@@ -15,6 +15,8 @@
 		B52E244924423C5500E7D19B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B52E244824423C5500E7D19B /* Assets.xcassets */; };
 		B52E244C24423C5500E7D19B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B52E244A24423C5500E7D19B /* LaunchScreen.storyboard */; };
 		B52E24542442406800E7D19B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B52E24532442406800E7D19B /* GoogleService-Info.plist */; };
+		B52E245724427CA700E7D19B /* BusinessHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E245624427CA700E7D19B /* BusinessHomeVC.swift */; };
+		B52E245924427D1300E7D19B /* CustomerHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E245824427D1300E7D19B /* CustomerHomeVC.swift */; };
 		F22E8BE7244249EE008915FE /* LoginRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22E8BE6244249EE008915FE /* LoginRegisterVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +32,8 @@
 		B52E244B24423C5500E7D19B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B52E244D24423C5500E7D19B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B52E24532442406800E7D19B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B52E245624427CA700E7D19B /* BusinessHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessHomeVC.swift; sourceTree = "<group>"; };
+		B52E245824427D1300E7D19B /* CustomerHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerHomeVC.swift; sourceTree = "<group>"; };
 		C7301CA5219BDEA656A13A79 /* Pods-Capstone_HomeDecor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capstone_HomeDecor.debug.xcconfig"; path = "Target Support Files/Pods-Capstone_HomeDecor/Pods-Capstone_HomeDecor.debug.xcconfig"; sourceTree = "<group>"; };
 		F22E8BE6244249EE008915FE /* LoginRegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRegisterVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,7 +80,7 @@
 		B52E243E24423C5200E7D19B /* Capstone_HomeDecor */ = {
 			isa = PBXGroup;
 			children = (
-				F22E8BE6244249EE008915FE /* LoginRegisterVC.swift */,
+				B52E245524424CB700E7D19B /*  View Controllers */,
 				B52E243F24423C5200E7D19B /* AppDelegate.swift */,
 				B52E244124423C5200E7D19B /* ViewController.swift */,
 				B52E244324423C5200E7D19B /* Experience.rcproject */,
@@ -87,6 +91,16 @@
 				B52E24532442406800E7D19B /* GoogleService-Info.plist */,
 			);
 			path = Capstone_HomeDecor;
+			sourceTree = "<group>";
+		};
+		B52E245524424CB700E7D19B /*  View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F22E8BE6244249EE008915FE /* LoginRegisterVC.swift */,
+				B52E245624427CA700E7D19B /* BusinessHomeVC.swift */,
+				B52E245824427D1300E7D19B /* CustomerHomeVC.swift */,
+			);
+			path = " View Controllers";
 			sourceTree = "<group>";
 		};
 		CE0F811399F0D2E45C0D90EB /* Frameworks */ = {
@@ -214,8 +228,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B52E244224423C5200E7D19B /* ViewController.swift in Sources */,
+				B52E245924427D1300E7D19B /* CustomerHomeVC.swift in Sources */,
 				B52E244024423C5200E7D19B /* AppDelegate.swift in Sources */,
 				B52E244424423C5200E7D19B /* Experience.rcproject in Sources */,
+				B52E245724427CA700E7D19B /* BusinessHomeVC.swift in Sources */,
 				F22E8BE7244249EE008915FE /* LoginRegisterVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
