@@ -34,21 +34,53 @@ class ArVC: UIViewController {
     
     @IBAction func captureButtonPressed(_ sender: UIButton) {
         
-//        let destVC = storyboard?.instantiateViewController(identifier: "testVC") as! TestVC
-//
-//        destVC.capturedImage = captureImage()
-//        navigationController?.pushViewController(destVC, animated: true)
-//
+        let capturedImage = self.sceneView.snapshot()
+       
+       let saved = saveImage(image: capturedImage)
+        
+        if saved{
+           print("successful")
+        }
+        else{
+            print("error")
+        }
+        
+    
     }
     
-    func captureImage()->UIImage{
+
+    
+    func saveImage(image: UIImage) -> Bool {
+        guard let data = image.jpegData(compressionQuality: 1) ?? image.pngData() else {
+            return false
+        }
+        guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
+            return false
         
-       let capturedImage = self.sceneView.snapshot()
+        }
+        let fileManager = FileManager.default
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+        let dirContents = try? fileManager.contentsOfDirectory(atPath: documentsPath)
+        let count = dirContents?.count
         
-        return capturedImage
+        print(count as Any)
+        do {
+            let stringPath = directory.appendingPathComponent("\(count ?? 0).png")!
+                try  data.write(to: stringPath )
+                print("----actual path---")
+                print(stringPath)
+            
+           
+            
+            
+            
+            
+            return true
+        } catch {
+            print(error.localizedDescription)
+            return false
+        }
     }
-    
-    
     
     
 }
