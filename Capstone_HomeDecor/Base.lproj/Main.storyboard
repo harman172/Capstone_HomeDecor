@@ -162,10 +162,10 @@
             </objects>
             <point key="canvasLocation" x="1265" y="-404"/>
         </scene>
-        <!--Home-->
+        <!--CustomerHomeVC-->
         <scene sceneID="x1V-2U-LlD">
             <objects>
-                <viewController storyboardIdentifier="CustomerVC" id="5E6-no-sNk" customClass="CustomerHomeVC" customModule="Capstone_HomeDecor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CustomerVC" title="CustomerHomeVC" id="5E6-no-sNk" customClass="CustomerHomeVC" customModule="Capstone_HomeDecor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7yT-YV-F8k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -241,6 +241,7 @@
                                         </state>
                                         <connections>
                                             <action selector="wishlistPressed:" destination="5E6-no-sNk" eventType="touchUpInside" id="KgO-0N-FQm"/>
+                                            <segue destination="RYv-7y-Grq" kind="show" id="gKq-tF-aXB"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -267,7 +268,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxP-VE-VK0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1577" y="436"/>
+            <point key="canvasLocation" x="1414" y="446"/>
         </scene>
         <!--Object DescVC-->
         <scene sceneID="zb2-z0-7TJ">
@@ -542,11 +543,11 @@
             <objects>
                 <viewController title="Wish List" id="RYv-7y-Grq" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fHj-D4-v7j">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TaT-nt-glT">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="577"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.94999999999999996" height="1"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="7" minimumInteritemSpacing="7" id="4YI-jB-MSM">
@@ -588,7 +589,7 @@
                                 </connections>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="sbC-vC-oEG">
-                                <rect key="frame" x="10" y="602" width="355" height="60"/>
+                                <rect key="frame" x="10" y="582" width="355" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Wn-RE-Tjp">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="60"/>
