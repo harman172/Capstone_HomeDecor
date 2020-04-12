@@ -47,19 +47,19 @@ class CustomerHomeVC:UIViewController , UICollectionViewDelegate , UICollectionV
           
           let selectedItemName = items[indexPath.row]
           
-//          let destVC = storyboard?.instantiateViewController(identifier: "objectDescVC") as! ObjectDescVC
-//
-//            destVC.imageName = selectedItemName
-//
-//          navigationController?.pushViewController(destVC, animated: true)
+          let destVC = storyboard?.instantiateViewController(identifier: "objectDescVC") as! ObjectDescVC
+
+            destVC.imageName = selectedItemName
+
+          navigationController?.pushViewController(destVC, animated: true)
           
       }
           
       // MARK: Saved Images screen
       @IBAction func savedImgPressed(_ sender: UIButton) {
-//      let destVC = storyboard?.instantiateViewController(identifier: "savedImagesVC") as! SavedImagesVC
-//        
-//          navigationController?.pushViewController(destVC, animated: true)
+      let destVC = storyboard?.instantiateViewController(identifier: "savedImagesVC") as! SavedImagesVC
+        
+          navigationController?.pushViewController(destVC, animated: true)
         
       
       }
