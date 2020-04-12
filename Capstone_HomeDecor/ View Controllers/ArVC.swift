@@ -51,7 +51,7 @@ class ArVC: UIViewController {
 
     
     func saveImage(image: UIImage) -> Bool {
-        guard let data = image.jpegData(compressionQuality: 1) ?? image.pngData() else {
+        guard let data =  image.pngData() else {
             return false
         }
         guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {

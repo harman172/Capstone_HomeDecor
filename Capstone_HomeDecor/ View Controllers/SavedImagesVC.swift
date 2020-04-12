@@ -12,10 +12,10 @@ class SavedImagesVC: UIViewController , UICollectionViewDataSource , UICollectio
    
    
 
-    var imgString = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        getPath()
+      
     }
     // MARK: For testing only
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -25,11 +25,12 @@ class SavedImagesVC: UIViewController , UICollectionViewDataSource , UICollectio
        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
        
            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! SavedImagesViewCell
-        print("---testing this---")
-          print(numberOfFile())
-        print(imgString[indexPath.row])
-        cell.imgViewCell.image = UIImage(contentsOfFile: imgString[indexPath.row])
-        //cell.imgViewCell.image = UIImage(
+       
+        
+        
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+        let imageURL = URL(fileURLWithPath: paths).appendingPathComponent("\(indexPath.row).png")
+        cell.imgViewCell.image = UIImage(contentsOfFile: imageURL.path)
         
     
         
@@ -57,18 +58,7 @@ class SavedImagesVC: UIViewController , UICollectionViewDataSource , UICollectio
         return count ?? 0
     }
     
-    func getPath() {
-        for i in 0..<numberOfFile(){
-            let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
-            let url = URL(fileURLWithPath: paths).appendingPathComponent(String(i)+".png")
-            let stringUrl = url.absoluteString
-            print("----get path---")
-            print(stringUrl)
-            print(numberOfFile())
-            imgString.append(stringUrl)
-        }
-       
-    }
+   
 
 }
 
