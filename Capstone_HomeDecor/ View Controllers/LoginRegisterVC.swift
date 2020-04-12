@@ -39,14 +39,21 @@ class LoginRegisterVC: UIViewController {
                 phoneNoTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""){
                 return "All the fields are required"
             }
+            if isPasswordValid(passwordTF.text!) == false{
+                return "Password must contain a special character and a number"
+            }
         } else if(loginRegBtn.titleLabel?.text == "Login"){
             if (emailTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
                 passwordTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""){
                 return "All the fields are required"
             }
         }
-        
         return nil
+    }
+    
+    func isPasswordValid(_ password : String) -> Bool{
+        let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
+        return passwordTest.evaluate(with: password)
     }
     
     @IBAction func toggleButtonTapped(_ sender: UIButton) {
@@ -65,9 +72,6 @@ class LoginRegisterVC: UIViewController {
             nameTF.isHidden = true
             phoneNoTF.isHidden = true
             userType.isHidden = true
-            
-            
-            
         }
     }
     
@@ -76,75 +80,114 @@ class LoginRegisterVC: UIViewController {
         if validation != nil{
             errorLabel.isHidden = false
             errorLabel.text = validation
-        }
-        if(loginRegBtn.titleLabel?.text == "Login"){
-            errorLabel.isHidden = true
-        } else if(loginRegBtn.titleLabel?.text == "Register"){
-            errorLabel.isHidden = true
-            let name = nameTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let email = emailTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let password = passwordTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let  phone = phoneNoTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            
-            Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
-                if let err = error{
-                    self.errorLabel.isHidden = false
-                    self.errorLabel.text = err.localizedDescription
-                } else{
-                    var accountType = "business"
-                    if(self.userType.selectedSegmentIndex == 0){
-                        accountType = "customer"
-                    }
-                    
-                    //store in database
-                    let db = Firestore.firestore()
-                    db.collection("users").addDocument(data: ["name":name, "phone":phone, "password":password, "uid":result!.user.uid, "account type":accountType]) { (error) in
-                        if error == nil{
-                            var homeViewController : UIViewController?
-                            if accountType == "business"{
-                                homeViewController = self.storyboard?.instantiateViewController(identifier: "BusinessVC") as? BusinessHomeVC
+        } else{
+            if(loginRegBtn.titleLabel?.text == "Login"){
+                errorLabel.isHidden = true
+                let email = emailTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                let password = passwordTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+                    if error != nil{
+                        self.errorLabel.isHidden = false
+                        self.errorLabel.text = error!.localizedDescription
+                    } else{
+                        let db = Firestore.firestore()
+                        let docReference = db.collection("users").document(result!.user.uid)
+                        docReference.getDocument { (document, error) in
+                            if let document = document, document.exists{
+                                let dataDescription = document.data().map(String.init(describing: )) ?? "nil"
+                                print("___________________")
+                                let accountType = document.data()!["account type"] as! String
+                                print(accountType)
+                                self.transitionToHomeScreen(accountType)
+//                                if (document.data()!["account type"] == "business"){
+//
+//                                }
+//                                for (key, value) in document.data()!{
+//                                    if (
+//                                }
                             } else{
-                                homeViewController = self.storyboard?.instantiateViewController(identifier: "CustomerVC") as? CustomerHomeVC
+                                print("__________________")
+                                print("document does not exist")
                             }
-                            self.view.window?.rootViewController = homeViewController
-                            self.view.window?.makeKeyAndVisible()
-                        } else{
-                            print(error!.localizedDescription)
                         }
                     }
-                    
                 }
+                
+                
+            } else if(loginRegBtn.titleLabel?.text == "Register"){
+                errorLabel.isHidden = true
+                let name = nameTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                let email = emailTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                let password = passwordTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                let  phone = phoneNoTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                
+                Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+                    if let err = error{
+                        self.errorLabel.isHidden = false
+                        self.errorLabel.text = err.localizedDescription
+                    } else{
+                        var accountType = "business"
+                        if(self.userType.selectedSegmentIndex == 0){
+                            accountType = "customer"
+                        }
+                        
+                        //store in database
+                        let db = Firestore.firestore()
+                        db.collection("users").document(result!.user.uid).setData(["name":name, "phone":phone, "password":password, "account type":accountType]) { (error) in
+                            if error != nil{
+                                print("Error writing document")
+                            } else{
+                                self.transitionToHomeScreen(accountType)
+                            }
+//                            if error == nil{
+//                              var homeViewController : UIViewController?
+//                              if accountType == "business"{
+//                                  homeViewController = self.storyboard?.instantiateViewController(identifier: "BusinessVC") as? BusinessHomeVC
+//                              } else{
+//                                  homeViewController = self.storyboard?.instantiateViewController(identifier: "CustomerVC") as? CustomerHomeVC
+//                              }
+//                              self.view.window?.rootViewController = homeViewController
+//                              self.view.window?.makeKeyAndVisible()
+//                          } else{
+//                                print("********************")
+//                                print(error!.localizedDescription)
+//                          }
+                        }
+                        /*
+                        db.collection("users").addDocument(data: ["name":name, "phone":phone, "password":password, "uid":result!.user.uid, "account type":accountType]) { (error) in
+                            if error == nil{
+                                var homeViewController : UIViewController?
+                                if accountType == "business"{
+                                    homeViewController = self.storyboard?.instantiateViewController(identifier: "BusinessVC") as? BusinessHomeVC
+                                } else{
+                                    homeViewController = self.storyboard?.instantiateViewController(identifier: "CustomerVC") as? CustomerHomeVC
+                                }
+                                self.view.window?.rootViewController = homeViewController
+                                self.view.window?.makeKeyAndVisible()
+                            } else{
+                                print(error!.localizedDescription)
+                            }
+                        }
+                        */
+                        
+                    }
+                }
+                
             }
-            
         }
     }
     
-    
-    /*
-    @IBAction func navigationBtnPressed(_ sender: UIButton) {
-        
-        
-    if(loginRegBtn.titleLabel?.text == "Login"){
-        // going to register screen
-        loginRegBtn.setTitle("Register", for: .normal)
-        loginRegNavBtn.setTitle("Already Have Account? Login", for: .normal)
-        nameTF.isHidden = false
-        phoneNoTF.isHidden = false
-        userType.isHidden = false
-    }else{
-        
-        // going to login screen
-        
-    loginRegBtn.setTitle("Login", for: .normal)
-    loginRegNavBtn.setTitle("Dont Have an Account ? Register", for: .normal)
-        
-        nameTF.isHidden = true
-        phoneNoTF.isHidden = true
-        userType.isHidden = true
+    func transitionToHomeScreen(_ accountType: String){
+        var homeViewController : UIViewController?
+        if accountType == "business"{
+            homeViewController = storyboard?.instantiateViewController(identifier: "BusinessVC") as? BusinessHomeVC
+        } else{
+            homeViewController = storyboard?.instantiateViewController(identifier: "CustomerVC") as? CustomerHomeVC
         }
-        
+        view.window?.rootViewController = homeViewController
+        view.window?.makeKeyAndVisible()
     }
- */
+ 
     
 }
 

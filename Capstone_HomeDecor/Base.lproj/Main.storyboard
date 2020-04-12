@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="j41-qS-spu">
-                                <rect key="frame" x="40" y="358" width="334" height="180"/>
+                                <rect key="frame" x="40" y="333" width="334" height="230"/>
                                 <subviews>
                                     <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LuQ-2N-5QS">
                                         <rect key="frame" x="0.0" y="-40" width="334" height="40"/>
@@ -58,7 +58,7 @@
                                             <constraint firstAttribute="height" constant="40" id="FcT-A1-k5R"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone No" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Hc-nT-rXb" userLabel="PhoneNoTF">
                                         <rect key="frame" x="0.0" y="95" width="334" height="40"/>
@@ -66,7 +66,7 @@
                                             <constraint firstAttribute="height" constant="40" id="rhU-SM-H9h"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
                                     </textField>
                                     <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RF9-8k-vxc">
                                         <rect key="frame" x="0.0" y="95" width="334" height="1"/>
@@ -75,14 +75,17 @@
                                             <segment title="Business"/>
                                         </segments>
                                     </segmentedControl>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7v1-Qz-zFi">
-                                        <rect key="frame" x="0.0" y="95" width="334" height="0.0"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7v1-Qz-zFi">
+                                        <rect key="frame" x="0.0" y="100" width="334" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="svS-Cu-jdJ"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEK-qC-yRl">
-                                        <rect key="frame" x="0.0" y="100" width="334" height="40"/>
+                                        <rect key="frame" x="0.0" y="150" width="334" height="40"/>
                                         <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="H4B-om-bBG"/>
@@ -96,7 +99,7 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ST-U9-IL0">
-                                        <rect key="frame" x="0.0" y="150" width="334" height="30"/>
+                                        <rect key="frame" x="0.0" y="200" width="334" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account yet?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gfv-uj-oeV">
                                                 <rect key="frame" x="0.0" y="0.0" width="207" height="30"/>
@@ -114,9 +117,6 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="uEK-qC-yRl" firstAttribute="top" relation="lessThanOrEqual" secondItem="RF9-8k-vxc" secondAttribute="bottom" constant="30" id="Ick-wC-Yhy"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -145,13 +145,22 @@
             </objects>
             <point key="canvasLocation" x="248" y="54"/>
         </scene>
-        <!--View Controller-->
+        <!--Customer HomeVC-->
         <scene sceneID="cWZ-y1-AC0">
             <objects>
-                <viewController storyboardIdentifier="CustomerVC" id="aoj-fn-qGK" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CustomerVC" id="aoj-fn-qGK" customClass="CustomerHomeVC" customModule="Capstone_HomeDecor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AS7-Y5-87w">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Customer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZE-mF-zgg">
+                                <rect key="frame" x="170" y="438" width="75" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="BF6-qT-mf4"/>
                     </view>
@@ -160,13 +169,22 @@
             </objects>
             <point key="canvasLocation" x="1264" y="370"/>
         </scene>
-        <!--View Controller-->
+        <!--Business HomeVC-->
         <scene sceneID="NOr-IG-uFk">
             <objects>
-                <viewController storyboardIdentifier="BusinessVC" id="UKw-6k-c3q" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BusinessVC" id="UKw-6k-c3q" customClass="BusinessHomeVC" customModule="Capstone_HomeDecor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PaZ-XF-iKX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Business" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2v-FE-ccB">
+                                <rect key="frame" x="173" y="438" width="69" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="nes-Uj-fqw"/>
                     </view>
