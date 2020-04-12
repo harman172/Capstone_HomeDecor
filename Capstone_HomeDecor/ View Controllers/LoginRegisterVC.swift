@@ -183,9 +183,11 @@ class LoginRegisterVC: UIViewController {
             homeViewController = storyboard?.instantiateViewController(identifier: "BusinessVC") as? BusinessHomeVC
         } else{
             homeViewController = storyboard?.instantiateViewController(identifier: "CustomerVC") as? CustomerHomeVC
+        
         }
-        view.window?.rootViewController = homeViewController
-        view.window?.makeKeyAndVisible()
+         navigationController?.pushViewController(homeViewController!, animated: true)
+//        view.window?.rootViewController = homeViewController
+//        view.window?.makeKeyAndVisible()
     }
  
     

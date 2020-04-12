@@ -8,23 +8,69 @@
 
 import UIKit
 
-class CustomerHomeVC: UIViewController {
+class CustomerHomeVC:UIViewController , UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
+  
+    @IBOutlet weak var savedImgBtn: UIButton!
+    
+    @IBOutlet weak var wishBtn: UIButton!
+    let items:[String] = ["table" , "chair" , "couch"]
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        wishBtn.layer.cornerRadius = 10
+        savedImgBtn.layer.cornerRadius = 10
+        
     }
     
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+          return items.count
+         }
+         
+         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomerHomeViewCell
 
-    /*
-    // MARK: - Navigation
+          cell.ImageViewCell.image = UIImage(named: items[indexPath.row])
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+       return cell
+         }
+       // MARK: For cell size WRT screen size
+      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+          let height = view.frame.size.height
+          let width = view.frame.size.width
+         
+          return CGSize(width: width * 0.47, height: height * 0.2)
+      }
+      
+      func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+          
+          let selectedItemName = items[indexPath.row]
+          
+//          let destVC = storyboard?.instantiateViewController(identifier: "objectDescVC") as! ObjectDescVC
+//
+//            destVC.imageName = selectedItemName
+//
+//          navigationController?.pushViewController(destVC, animated: true)
+          
+      }
+          
+      // MARK: Saved Images screen
+      @IBAction func savedImgPressed(_ sender: UIButton) {
+//      let destVC = storyboard?.instantiateViewController(identifier: "savedImagesVC") as! SavedImagesVC
+//        
+//          navigationController?.pushViewController(destVC, animated: true)
+        
+      
+      }
+      
+      
+      
+      // MARK: Wishlist screen
+      @IBAction func wishlistPressed(_ sender: UIButton) {
+          //wishlist screen
+      }
+    
 
 }
+
