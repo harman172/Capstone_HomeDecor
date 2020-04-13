@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rYM-Ae-5sW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rYM-Ae-5sW">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -369,8 +369,38 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JVo-Cj-Maj">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </arscnView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="84F-wT-ODk" userLabel="upBtn">
+                                <rect key="frame" x="67" y="557" width="47" height="45"/>
+                                <state key="normal" image="chevron.up.circle.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="urJ-n7-Ac5">
+                                <rect key="frame" x="67" y="612" width="47" height="45"/>
+                                <state key="normal" image="chevron.down.circle.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLa-Rk-b7x">
+                                <rect key="frame" x="124" y="612" width="47" height="45"/>
+                                <state key="normal" image="chevron.right.circle.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCa-Gn-N8h">
+                                <rect key="frame" x="191" y="603" width="49.5" height="49"/>
+                                <state key="normal" image="rotate.left.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFA-6f-QXE">
+                                <rect key="frame" x="10" y="612" width="47" height="45"/>
+                                <state key="normal" image="chevron.left.circle.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                </state>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wk-Pu-Ysj">
-                                <rect key="frame" x="147.5" y="577" width="80" height="80"/>
+                                <rect key="frame" x="285" y="577" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="QeU-bw-2ud"/>
                                     <constraint firstAttribute="height" constant="80" id="s2b-v4-hyf"/>
@@ -383,25 +413,66 @@
                                     <action selector="captureButtonPressed:" destination="RCk-Uk-7l0" eventType="touchUpInside" id="Cb7-C0-twg"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R30-2Y-8qb">
+                                <rect key="frame" x="10" y="513" width="60" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="qRZ-Xl-9hD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sz4-r7-1mo">
+                                <rect key="frame" x="80" y="513" width="55" height="34"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="vA8-uj-IsO"/>
+                                </constraints>
+                                <state key="normal" title="Scale">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                </state>
+                                <connections>
+                                    <action selector="scalePressed:" destination="RCk-Uk-7l0" eventType="touchUpInside" id="bCY-W7-XoX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="pPt-ed-FOI" firstAttribute="bottom" secondItem="gCa-Gn-N8h" secondAttribute="bottom" constant="15" id="0Gf-EI-fLe"/>
+                            <constraint firstItem="sz4-r7-1mo" firstAttribute="leading" secondItem="R30-2Y-8qb" secondAttribute="trailing" constant="10" id="2aS-X5-rbw"/>
+                            <constraint firstItem="pPt-ed-FOI" firstAttribute="bottom" secondItem="urJ-n7-Ac5" secondAttribute="bottom" constant="10" id="35G-ul-C5C"/>
+                            <constraint firstItem="pPt-ed-FOI" firstAttribute="bottom" secondItem="ZFA-6f-QXE" secondAttribute="bottom" constant="10" id="5hy-If-l2h"/>
+                            <constraint firstItem="ZFA-6f-QXE" firstAttribute="leading" secondItem="pPt-ed-FOI" secondAttribute="leading" constant="10" id="9Qu-oZ-jQz"/>
+                            <constraint firstItem="R30-2Y-8qb" firstAttribute="leading" secondItem="pPt-ed-FOI" secondAttribute="leading" constant="10" id="9f4-Q8-Z5m"/>
+                            <constraint firstItem="urJ-n7-Ac5" firstAttribute="leading" secondItem="ZFA-6f-QXE" secondAttribute="trailing" constant="10" id="BNQ-xu-Vdy"/>
                             <constraint firstItem="pPt-ed-FOI" firstAttribute="bottom" secondItem="1wk-Pu-Ysj" secondAttribute="bottom" constant="10" id="FfR-SS-a0i"/>
+                            <constraint firstItem="pPt-ed-FOI" firstAttribute="trailing" secondItem="1wk-Pu-Ysj" secondAttribute="trailing" constant="10" id="KCo-Sp-dqS"/>
                             <constraint firstItem="JVo-Cj-Maj" firstAttribute="top" secondItem="pPt-ed-FOI" secondAttribute="top" id="LyC-IF-S4P"/>
+                            <constraint firstItem="pPt-ed-FOI" firstAttribute="bottom" secondItem="tLa-Rk-b7x" secondAttribute="bottom" constant="10" id="Qao-PU-y7e"/>
                             <constraint firstItem="JVo-Cj-Maj" firstAttribute="leading" secondItem="pPt-ed-FOI" secondAttribute="leading" id="TDw-oJ-wqy"/>
+                            <constraint firstItem="gCa-Gn-N8h" firstAttribute="leading" secondItem="tLa-Rk-b7x" secondAttribute="trailing" constant="20" id="X9z-QG-AAf"/>
+                            <constraint firstItem="tLa-Rk-b7x" firstAttribute="leading" secondItem="urJ-n7-Ac5" secondAttribute="trailing" constant="10" id="Z9Q-aP-pt0"/>
                             <constraint firstItem="pPt-ed-FOI" firstAttribute="bottom" secondItem="JVo-Cj-Maj" secondAttribute="bottom" id="aEV-Yn-wyo"/>
-                            <constraint firstItem="1wk-Pu-Ysj" firstAttribute="centerX" secondItem="5dV-oy-rPN" secondAttribute="centerX" id="gyB-xE-e2G"/>
+                            <constraint firstItem="84F-wT-ODk" firstAttribute="leading" secondItem="ZFA-6f-QXE" secondAttribute="trailing" constant="10" id="i9i-gn-xfq"/>
                             <constraint firstItem="pPt-ed-FOI" firstAttribute="trailing" secondItem="JVo-Cj-Maj" secondAttribute="trailing" id="nAB-vE-GyC"/>
+                            <constraint firstItem="tLa-Rk-b7x" firstAttribute="top" secondItem="sz4-r7-1mo" secondAttribute="bottom" constant="65" id="rXA-Px-bWX"/>
+                            <constraint firstItem="84F-wT-ODk" firstAttribute="top" secondItem="R30-2Y-8qb" secondAttribute="bottom" constant="10" id="sGX-CA-NWr"/>
+                            <constraint firstItem="urJ-n7-Ac5" firstAttribute="top" secondItem="84F-wT-ODk" secondAttribute="bottom" constant="10" id="si1-3C-hij"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pPt-ed-FOI"/>
                     </view>
                     <connections>
+                        <outlet property="downBtn" destination="urJ-n7-Ac5" id="5EJ-Fv-4Lv"/>
+                        <outlet property="leftBtn" destination="ZFA-6f-QXE" id="Wuc-uP-ZzE"/>
+                        <outlet property="rightBtn" destination="tLa-Rk-b7x" id="DR0-JR-cyv"/>
+                        <outlet property="rotateBtn" destination="gCa-Gn-N8h" id="lXs-xG-Tyo"/>
+                        <outlet property="scaleTF" destination="R30-2Y-8qb" id="LjW-rp-uii"/>
                         <outlet property="sceneView" destination="JVo-Cj-Maj" id="VRa-NC-Oxc"/>
+                        <outlet property="upBtn" destination="84F-wT-ODk" id="9wc-4p-Yb7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vwv-Pg-hha" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3498" y="382"/>
+            <point key="canvasLocation" x="3496.8000000000002" y="381.85907046476763"/>
         </scene>
         <!--Saved ImagesVC-->
         <scene sceneID="clW-ZS-yBL">
@@ -679,9 +750,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera.circle" catalog="system" width="128" height="121"/>
+        <image name="camera.circle" catalog="system" width="64" height="60"/>
+        <image name="chevron.down.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="chevron.left.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="chevron.right.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="chevron.up.circle.fill" catalog="system" width="64" height="60"/>
         <image name="couch" width="1920" height="1080"/>
-        <image name="folder.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="hand.thumbsup" catalog="system" width="128" height="128"/>
+        <image name="folder.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="hand.thumbsup" catalog="system" width="64" height="64"/>
+        <image name="rotate.left.fill" catalog="system" width="64" height="64"/>
     </resources>
 </document>
