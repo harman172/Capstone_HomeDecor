@@ -70,10 +70,6 @@ class ArVC: UIViewController {
                 print("----actual path---")
                 print(stringPath)
             
-           
-            
-            
-            
             
             return true
         } catch {

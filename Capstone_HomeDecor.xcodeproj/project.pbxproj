@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3AACCF8B0CEA24DFBDFA559A /* Pods_Capstone_HomeDecor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4890A03200EC83055D21469B /* Pods_Capstone_HomeDecor.framework */; };
+		4404521D2444CD650072EB7D /* ImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404521C2444CD650072EB7D /* ImageVC.swift */; };
 		44C1646E2442C35200D76E2D /* CustomerHomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C1646D2442C35200D76E2D /* CustomerHomeViewCell.swift */; };
 		44C164702442C42E00D76E2D /* SavedImagesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C1646F2442C42E00D76E2D /* SavedImagesViewCell.swift */; };
 		44C164722442C48A00D76E2D /* ObjectDescVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C164712442C48A00D76E2D /* ObjectDescVC.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		29BB0F998A672CD05A1DCD0E /* Pods-Capstone_HomeDecor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capstone_HomeDecor.release.xcconfig"; path = "Target Support Files/Pods-Capstone_HomeDecor/Pods-Capstone_HomeDecor.release.xcconfig"; sourceTree = "<group>"; };
+		4404521C2444CD650072EB7D /* ImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVC.swift; sourceTree = "<group>"; };
 		44C1646D2442C35200D76E2D /* CustomerHomeViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerHomeViewCell.swift; sourceTree = "<group>"; };
 		44C1646F2442C42E00D76E2D /* SavedImagesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedImagesViewCell.swift; sourceTree = "<group>"; };
 		44C164712442C48A00D76E2D /* ObjectDescVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectDescVC.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				44C164712442C48A00D76E2D /* ObjectDescVC.swift */,
 				44C164732442C49100D76E2D /* SavedImagesVC.swift */,
 				44C164752442C49800D76E2D /* ArVC.swift */,
+				4404521C2444CD650072EB7D /* ImageVC.swift */,
 			);
 			path = " View Controllers";
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				44C164762442C49800D76E2D /* ArVC.swift in Sources */,
 				B52E245924427D1300E7D19B /* CustomerHomeVC.swift in Sources */,
 				44C1646E2442C35200D76E2D /* CustomerHomeViewCell.swift in Sources */,
+				4404521D2444CD650072EB7D /* ImageVC.swift in Sources */,
 				44C164742442C49100D76E2D /* SavedImagesVC.swift in Sources */,
 				B52E244024423C5200E7D19B /* AppDelegate.swift in Sources */,
 				B52E244424423C5200E7D19B /* Experience.rcproject in Sources */,

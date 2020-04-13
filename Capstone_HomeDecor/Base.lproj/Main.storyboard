@@ -465,7 +465,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oak-OC-wob" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="247" y="1150"/>
+            <point key="canvasLocation" x="247" y="1192"/>
+        </scene>
+        <!--ImageVC-->
+        <scene sceneID="tXo-fs-njv">
+            <objects>
+                <viewController storyboardIdentifier="imageVC" id="4Wb-ib-Mgj" customClass="ImageVC" customModule="Capstone_HomeDecor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ffn-KD-fRa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CzP-ql-vPN">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="367"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="CzP-ql-vPN" firstAttribute="top" secondItem="tWt-WU-Q8t" secondAttribute="top" id="daV-TY-rTc"/>
+                            <constraint firstItem="tWt-WU-Q8t" firstAttribute="bottom" secondItem="CzP-ql-vPN" secondAttribute="bottom" constant="300" id="izR-rD-NM0"/>
+                            <constraint firstItem="CzP-ql-vPN" firstAttribute="leading" secondItem="tWt-WU-Q8t" secondAttribute="leading" id="vCi-x9-mmN"/>
+                            <constraint firstItem="tWt-WU-Q8t" firstAttribute="trailing" secondItem="CzP-ql-vPN" secondAttribute="trailing" id="xSE-T4-yGT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tWt-WU-Q8t"/>
+                    </view>
+                    <connections>
+                        <outlet property="imgView" destination="CzP-ql-vPN" id="6aM-mD-EvD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MFd-Cf-OdW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1239.2" y="1204.9475262368817"/>
         </scene>
         <!--AddObjectVC-->
         <scene sceneID="ZnW-2f-wjk">

@@ -12,10 +12,10 @@ class SavedImagesVC: UIViewController , UICollectionViewDataSource , UICollectio
    
    
 
-    
+    var imgPaths = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+      getPaths()
     }
     // MARK: For testing only
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -28,16 +28,30 @@ class SavedImagesVC: UIViewController , UICollectionViewDataSource , UICollectio
        
         
         
-        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
-        let imageURL = URL(fileURLWithPath: paths).appendingPathComponent("\(indexPath.row).png")
-        cell.imgViewCell.image = UIImage(contentsOfFile: imageURL.path)
-        
+//        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+//        let imageURL = URL(fileURLWithPath: paths).appendingPathComponent("\(indexPath.row).png")
+//        cell.imgViewCell.image = UIImage(contentsOfFile: imageURL.path)
+        cell.imgViewCell.image = UIImage(contentsOfFile: imgPaths[indexPath.row])
     
         
         
         
         return cell
        }
+    
+        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            
+           let selectedFile = imgPaths[indexPath.row]
+            
+            let destVC = storyboard?.instantiateViewController(withIdentifier: "imageVC") as! ImageVC
+            destVC.imgPath = selectedFile
+            navigationController?.pushViewController(destVC, animated: true)
+            
+        
+        }
+    
+    
+    
     
     // MARK: For cell size WRT screen size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -58,6 +72,20 @@ class SavedImagesVC: UIViewController , UICollectionViewDataSource , UICollectio
         return count ?? 0
     }
     
+    func getPaths() {
+        
+        for i in 0..<numberOfFile(){
+            let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+            let imageURL = URL(fileURLWithPath: paths).appendingPathComponent("\(String(i)).png")
+           
+            
+            imgPaths.append(imageURL.path)
+            print(imgPaths)
+            print(imgPaths.count)
+        }
+        
+
+    }
    
 
 }
