@@ -15,6 +15,10 @@
 		44C164742442C49100D76E2D /* SavedImagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C164732442C49100D76E2D /* SavedImagesVC.swift */; };
 		44C164762442C49800D76E2D /* ArVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C164752442C49800D76E2D /* ArVC.swift */; };
 		44C164782442C51300D76E2D /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 44C164772442C51300D76E2D /* art.scnassets */; };
+		B5011CEA244693A3004456C0 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5011CE9244693A3004456C0 /* ContainerViewController.swift */; };
+		B5011CED24469B09004456C0 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5011CEC24469B09004456C0 /* SideMenuTableViewController.swift */; };
+		B5011CEF24469DD6004456C0 /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5011CEE24469DD6004456C0 /* SlideInTransition.swift */; };
+		B5011CF12446A196004456C0 /* AddNewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5011CF02446A196004456C0 /* AddNewItemViewController.swift */; };
 		B52E244024423C5200E7D19B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E243F24423C5200E7D19B /* AppDelegate.swift */; };
 		B52E244424423C5200E7D19B /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = B52E244324423C5200E7D19B /* Experience.rcproject */; };
 		B52E244724423C5200E7D19B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B52E244524423C5200E7D19B /* Main.storyboard */; };
@@ -23,6 +27,9 @@
 		B52E24542442406800E7D19B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B52E24532442406800E7D19B /* GoogleService-Info.plist */; };
 		B52E245724427CA700E7D19B /* BusinessHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E245624427CA700E7D19B /* BusinessHomeVC.swift */; };
 		B52E245924427D1300E7D19B /* CustomerHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E245824427D1300E7D19B /* CustomerHomeVC.swift */; };
+		B52FA44C244548BA00EAD3B1 /* BusinessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52FA44B244548BA00EAD3B1 /* BusinessCell.swift */; };
+		B54B7B962447957F00C14313 /* BusinessGridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54B7B942447957F00C14313 /* BusinessGridViewCell.swift */; };
+		B54B7B972447957F00C14313 /* BusinessGridViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B54B7B952447957F00C14313 /* BusinessGridViewCell.xib */; };
 		F22E8BE7244249EE008915FE /* LoginRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22E8BE6244249EE008915FE /* LoginRegisterVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +43,10 @@
 		44C164752442C49800D76E2D /* ArVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArVC.swift; sourceTree = "<group>"; };
 		44C164772442C51300D76E2D /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		4890A03200EC83055D21469B /* Pods_Capstone_HomeDecor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Capstone_HomeDecor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5011CE9244693A3004456C0 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		B5011CEC24469B09004456C0 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
+		B5011CEE24469DD6004456C0 /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
+		B5011CF02446A196004456C0 /* AddNewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewItemViewController.swift; sourceTree = "<group>"; };
 		B52E243C24423C5200E7D19B /* Capstone_HomeDecor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capstone_HomeDecor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B52E243F24423C5200E7D19B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B52E244324423C5200E7D19B /* Experience.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Experience.rcproject; sourceTree = "<group>"; };
@@ -46,6 +57,9 @@
 		B52E24532442406800E7D19B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B52E245624427CA700E7D19B /* BusinessHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessHomeVC.swift; sourceTree = "<group>"; };
 		B52E245824427D1300E7D19B /* CustomerHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerHomeVC.swift; sourceTree = "<group>"; };
+		B52FA44B244548BA00EAD3B1 /* BusinessCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessCell.swift; sourceTree = "<group>"; };
+		B54B7B942447957F00C14313 /* BusinessGridViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessGridViewCell.swift; sourceTree = "<group>"; };
+		B54B7B952447957F00C14313 /* BusinessGridViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessGridViewCell.xib; sourceTree = "<group>"; };
 		C7301CA5219BDEA656A13A79 /* Pods-Capstone_HomeDecor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capstone_HomeDecor.debug.xcconfig"; path = "Target Support Files/Pods-Capstone_HomeDecor/Pods-Capstone_HomeDecor.debug.xcconfig"; sourceTree = "<group>"; };
 		F22E8BE6244249EE008915FE /* LoginRegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRegisterVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,6 +94,20 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B5011CEB24469AB8004456C0 /* Business Account Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B5011CE9244693A3004456C0 /* ContainerViewController.swift */,
+				B5011CEC24469B09004456C0 /* SideMenuTableViewController.swift */,
+				B5011CEE24469DD6004456C0 /* SlideInTransition.swift */,
+				B52E245624427CA700E7D19B /* BusinessHomeVC.swift */,
+				B5011CF02446A196004456C0 /* AddNewItemViewController.swift */,
+				B54B7B942447957F00C14313 /* BusinessGridViewCell.swift */,
+				B54B7B952447957F00C14313 /* BusinessGridViewCell.xib */,
+			);
+			path = "Business Account Controllers";
+			sourceTree = "<group>";
+		};
 		B52E243324423C5200E7D19B = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +129,8 @@
 		B52E243E24423C5200E7D19B /* Capstone_HomeDecor */ = {
 			isa = PBXGroup;
 			children = (
+				B5011CEB24469AB8004456C0 /* Business Account Controllers */,
+				B52FA44A2445484E00EAD3B1 /* Collection View */,
 				44C1646C2442C33100D76E2D /* Models */,
 				B52E245524424CB700E7D19B /*  View Controllers */,
 				B52E243F24423C5200E7D19B /* AppDelegate.swift */,
@@ -119,7 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				F22E8BE6244249EE008915FE /* LoginRegisterVC.swift */,
-				B52E245624427CA700E7D19B /* BusinessHomeVC.swift */,
 				B52E245824427D1300E7D19B /* CustomerHomeVC.swift */,
 				44C164712442C48A00D76E2D /* ObjectDescVC.swift */,
 				44C164732442C49100D76E2D /* SavedImagesVC.swift */,
@@ -127,6 +156,14 @@
 				4404521C2444CD650072EB7D /* ImageVC.swift */,
 			);
 			path = " View Controllers";
+			sourceTree = "<group>";
+		};
+		B52FA44A2445484E00EAD3B1 /* Collection View */ = {
+			isa = PBXGroup;
+			children = (
+				B52FA44B244548BA00EAD3B1 /* BusinessCell.swift */,
+			);
+			path = "Collection View";
 			sourceTree = "<group>";
 		};
 		CE0F811399F0D2E45C0D90EB /* Frameworks */ = {
@@ -201,6 +238,7 @@
 				B52E24542442406800E7D19B /* GoogleService-Info.plist in Resources */,
 				B52E244924423C5500E7D19B /* Assets.xcassets in Resources */,
 				44C164782442C51300D76E2D /* art.scnassets in Resources */,
+				B54B7B972447957F00C14313 /* BusinessGridViewCell.xib in Resources */,
 				B52E244724423C5200E7D19B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,15 +294,21 @@
 			files = (
 				44C164702442C42E00D76E2D /* SavedImagesViewCell.swift in Sources */,
 				44C164762442C49800D76E2D /* ArVC.swift in Sources */,
+				B5011CEA244693A3004456C0 /* ContainerViewController.swift in Sources */,
 				B52E245924427D1300E7D19B /* CustomerHomeVC.swift in Sources */,
 				44C1646E2442C35200D76E2D /* CustomerHomeViewCell.swift in Sources */,
+				B54B7B962447957F00C14313 /* BusinessGridViewCell.swift in Sources */,
 				4404521D2444CD650072EB7D /* ImageVC.swift in Sources */,
+				B52FA44C244548BA00EAD3B1 /* BusinessCell.swift in Sources */,
 				44C164742442C49100D76E2D /* SavedImagesVC.swift in Sources */,
 				B52E244024423C5200E7D19B /* AppDelegate.swift in Sources */,
+				B5011CEF24469DD6004456C0 /* SlideInTransition.swift in Sources */,
+				B5011CF12446A196004456C0 /* AddNewItemViewController.swift in Sources */,
 				B52E244424423C5200E7D19B /* Experience.rcproject in Sources */,
 				B52E245724427CA700E7D19B /* BusinessHomeVC.swift in Sources */,
 				44C164722442C48A00D76E2D /* ObjectDescVC.swift in Sources */,
 				F22E8BE7244249EE008915FE /* LoginRegisterVC.swift in Sources */,
+				B5011CED24469B09004456C0 /* SideMenuTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,13 +454,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4G88QX8MDZ;
+				DEVELOPMENT_TEAM = 59Z5F95HT6;
 				INFOPLIST_FILE = Capstone_HomeDecor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "harmankaur.Capstone-HomeDecor2";
+				PRODUCT_BUNDLE_IDENTIFIER = "harmankaur.Capstone-HomeDecor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -429,13 +473,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4G88QX8MDZ;
+				DEVELOPMENT_TEAM = 59Z5F95HT6;
 				INFOPLIST_FILE = Capstone_HomeDecor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "harmankaur.Capstone-HomeDecor2";
+				PRODUCT_BUNDLE_IDENTIFIER = "harmankaur.Capstone-HomeDecor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

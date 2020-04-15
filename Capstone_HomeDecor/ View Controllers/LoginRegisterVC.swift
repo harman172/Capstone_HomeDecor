@@ -180,7 +180,7 @@ class LoginRegisterVC: UIViewController {
     func transitionToHomeScreen(_ accountType: String){
         var homeViewController : UIViewController?
         if accountType == "business"{
-            homeViewController = storyboard?.instantiateViewController(identifier: "BusinessVC") as? BusinessHomeVC
+            homeViewController = storyboard?.instantiateViewController(identifier: "ContainerVC") as? ContainerViewController
         } else{
             homeViewController = storyboard?.instantiateViewController(identifier: "CustomerVC") as? CustomerHomeVC
         

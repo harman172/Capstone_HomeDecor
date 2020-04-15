@@ -1,14 +1,14 @@
 //
-//  BusinessHomeVC.swift
+//  AddNewItemViewController.swift
 //  Capstone_HomeDecor
 //
-//  Created by Harmanpreet Kaur on 2020-04-11.
+//  Created by Harmanpreet Kaur on 2020-04-14.
 //  Copyright © 2020 Harmanpreet Kaur. All rights reserved.
 //
 
 import UIKit
 
-class BusinessHomeVC: UIViewController {
+class AddNewItemViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
