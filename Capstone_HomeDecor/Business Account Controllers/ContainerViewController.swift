@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ContainerViewController: UIViewController {
 
@@ -61,6 +62,22 @@ class ContainerViewController: UIViewController {
         } else if title == "Addnewobject"{
             businessViewController.view.isHidden = true
             addNewViewController.view.isHidden = false
+        } else if title == "Logout"{
+            do {
+                try Auth.auth().signOut()
+                print("signed out")
+                let vc = storyboard?.instantiateViewController(withIdentifier: "loginRegisterVC") as! LoginRegisterVC
+                navigationController?.pushViewController(vc, animated: true)
+                
+                } catch let err {
+                    print(err)
+            }
+            
+//            try! Auth.auth().signOut()
+//            if let storyboard = self.storyboard {
+//                let vc = storyboard.instantiateViewController(withIdentifier: <#T##String#>) storyboard.instantiateViewControllerWithIdentifier("firstNavigationController") as! UINavigationController
+//                    self.presentViewController(vc, animated: false, completion: nil)
+//                }
         }
         
     }

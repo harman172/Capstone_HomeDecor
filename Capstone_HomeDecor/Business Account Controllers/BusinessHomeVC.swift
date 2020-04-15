@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import Firebase
 
 class BusinessHomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
@@ -20,7 +22,16 @@ class BusinessHomeVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         
 //        let nib = UINib(nibName: "BusinessGridViewCell", bundle: nil)
 //        collectionView.register(nib, forCellWithReuseIdentifier: "gridCell")
+        let user = Auth.auth().currentUser
         
+        if user != nil{
+            print("User signed in")
+        } else{
+            print("User don't exist")
+        }
+        if let u = user{
+            print("Email id : \(u.email)")
+        }
         
     }
     
