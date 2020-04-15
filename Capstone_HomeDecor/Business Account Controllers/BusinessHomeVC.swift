@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BusinessHomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class BusinessHomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionView: UICollectionView!
     let items:[String] = ["table" , "chair" , "couch"]
@@ -18,8 +18,8 @@ class BusinessHomeVC: UIViewController, UICollectionViewDelegate, UICollectionVi
 
         // Do any additional setup after loading the view.
         
-        let nib = UINib(nibName: "BusinessGridViewCell", bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: "gridCell")
+//        let nib = UINib(nibName: "BusinessGridViewCell", bundle: nil)
+//        collectionView.register(nib, forCellWithReuseIdentifier: "gridCell")
         
         
     }
@@ -29,20 +29,20 @@ class BusinessHomeVC: UIViewController, UICollectionViewDelegate, UICollectionVi
       }
       
       func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "gridCell", for: indexPath) as! BusinessGridViewCell
-        cell.setData(image: items[indexPath.row], title: items[indexPath.row])
-//        cell.itemImageView.image = UIImage(named: items[indexPath.row])
-//        cell.titleLabel.text = items[indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "gridCell", for: indexPath) as! BusinessCollectionViewCell
+//        cell.setData(image: items[indexPath.row], title: items[indexPath.row])
+        cell.cellImageView.image = UIImage(named: items[indexPath.row])
+        cell.cellTitle.text = items[indexPath.row]
         return cell
       }
       
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let height = view.frame.size.height
-//        let width = view.frame.size.width
-//        
-//        return CGSize(width: width * 0.47, height: height * 0.2)
-//        
-//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let height = view.frame.size.height
+        let width = view.frame.size.width
+        
+        return CGSize(width: width * 0.47, height: height * 0.2)
+        
+    }
 
     /*
     // MARK: - Navigation

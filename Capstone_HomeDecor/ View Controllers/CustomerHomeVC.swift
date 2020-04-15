@@ -39,7 +39,7 @@ class CustomerHomeVC:UIViewController , UICollectionViewDelegate , UICollectionV
 
           let height = view.frame.size.height
           let width = view.frame.size.width
-         
+
           return CGSize(width: width * 0.47, height: height * 0.2)
       }
       

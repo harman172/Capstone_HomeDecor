@@ -28,8 +28,7 @@
 		B52E245724427CA700E7D19B /* BusinessHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E245624427CA700E7D19B /* BusinessHomeVC.swift */; };
 		B52E245924427D1300E7D19B /* CustomerHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E245824427D1300E7D19B /* CustomerHomeVC.swift */; };
 		B52FA44C244548BA00EAD3B1 /* BusinessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52FA44B244548BA00EAD3B1 /* BusinessCell.swift */; };
-		B54B7B962447957F00C14313 /* BusinessGridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54B7B942447957F00C14313 /* BusinessGridViewCell.swift */; };
-		B54B7B972447957F00C14313 /* BusinessGridViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B54B7B952447957F00C14313 /* BusinessGridViewCell.xib */; };
+		B54B7B9924479ADC00C14313 /* BusinessCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54B7B9824479ADC00C14313 /* BusinessCollectionViewCell.swift */; };
 		F22E8BE7244249EE008915FE /* LoginRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22E8BE6244249EE008915FE /* LoginRegisterVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,8 +57,7 @@
 		B52E245624427CA700E7D19B /* BusinessHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessHomeVC.swift; sourceTree = "<group>"; };
 		B52E245824427D1300E7D19B /* CustomerHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerHomeVC.swift; sourceTree = "<group>"; };
 		B52FA44B244548BA00EAD3B1 /* BusinessCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessCell.swift; sourceTree = "<group>"; };
-		B54B7B942447957F00C14313 /* BusinessGridViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessGridViewCell.swift; sourceTree = "<group>"; };
-		B54B7B952447957F00C14313 /* BusinessGridViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessGridViewCell.xib; sourceTree = "<group>"; };
+		B54B7B9824479ADC00C14313 /* BusinessCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessCollectionViewCell.swift; sourceTree = "<group>"; };
 		C7301CA5219BDEA656A13A79 /* Pods-Capstone_HomeDecor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capstone_HomeDecor.debug.xcconfig"; path = "Target Support Files/Pods-Capstone_HomeDecor/Pods-Capstone_HomeDecor.debug.xcconfig"; sourceTree = "<group>"; };
 		F22E8BE6244249EE008915FE /* LoginRegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRegisterVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,8 +100,7 @@
 				B5011CEE24469DD6004456C0 /* SlideInTransition.swift */,
 				B52E245624427CA700E7D19B /* BusinessHomeVC.swift */,
 				B5011CF02446A196004456C0 /* AddNewItemViewController.swift */,
-				B54B7B942447957F00C14313 /* BusinessGridViewCell.swift */,
-				B54B7B952447957F00C14313 /* BusinessGridViewCell.xib */,
+				B54B7B9824479ADC00C14313 /* BusinessCollectionViewCell.swift */,
 			);
 			path = "Business Account Controllers";
 			sourceTree = "<group>";
@@ -238,7 +235,6 @@
 				B52E24542442406800E7D19B /* GoogleService-Info.plist in Resources */,
 				B52E244924423C5500E7D19B /* Assets.xcassets in Resources */,
 				44C164782442C51300D76E2D /* art.scnassets in Resources */,
-				B54B7B972447957F00C14313 /* BusinessGridViewCell.xib in Resources */,
 				B52E244724423C5200E7D19B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,8 +292,8 @@
 				44C164762442C49800D76E2D /* ArVC.swift in Sources */,
 				B5011CEA244693A3004456C0 /* ContainerViewController.swift in Sources */,
 				B52E245924427D1300E7D19B /* CustomerHomeVC.swift in Sources */,
+				B54B7B9924479ADC00C14313 /* BusinessCollectionViewCell.swift in Sources */,
 				44C1646E2442C35200D76E2D /* CustomerHomeViewCell.swift in Sources */,
-				B54B7B962447957F00C14313 /* BusinessGridViewCell.swift in Sources */,
 				4404521D2444CD650072EB7D /* ImageVC.swift in Sources */,
 				B52FA44C244548BA00EAD3B1 /* BusinessCell.swift in Sources */,
 				44C164742442C49100D76E2D /* SavedImagesVC.swift in Sources */,

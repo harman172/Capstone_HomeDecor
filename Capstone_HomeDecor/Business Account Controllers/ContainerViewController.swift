@@ -29,6 +29,8 @@ class ContainerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Home"
+        transitionToNewContent(MenuType.home)
 
         // Do any additional setup after loading the view.
     }
