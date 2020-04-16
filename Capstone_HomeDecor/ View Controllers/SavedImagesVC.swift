@@ -11,11 +11,21 @@ import UIKit
 class SavedImagesVC: UIViewController , UICollectionViewDataSource , UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
    
    
-
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var noImgView: UIView!
     var imgPaths = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
-      getPaths()
+      
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getPaths()
+        collectionView.reloadData()
+        if (numberOfFile() == 0){
+            noImgView.isHidden = false
+        }
     }
     // MARK: For testing only
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -63,21 +73,23 @@ class SavedImagesVC: UIViewController , UICollectionViewDataSource , UICollectio
         let fileManager = FileManager.default
                   let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
                   let dirContents = try? fileManager.contentsOfDirectory(atPath: documentsPath)
+              
                   let count = dirContents?.count
                 
         return count ?? 0
     }
     
     func getPaths() {
-        
+        imgPaths = [String]()
         for i in 0..<numberOfFile(){
             let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
-            let imageURL = URL(fileURLWithPath: paths).appendingPathComponent("\(String(i)).png")
+            let fileManager = FileManager.default
+            let dirContents = try? fileManager.contentsOfDirectory(atPath: paths)
+            let imageURL = URL(fileURLWithPath: paths).appendingPathComponent("\(dirContents![i])")
            
             
             imgPaths.append(imageURL.path)
-            print(imgPaths)
-            print(imgPaths.count)
+           
         }
         
 

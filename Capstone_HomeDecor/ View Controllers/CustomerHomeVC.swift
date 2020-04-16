@@ -23,6 +23,10 @@ class CustomerHomeVC:UIViewController , UICollectionViewDelegate , UICollectionV
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationItem.hidesBackButton = true
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
           return items.count
          }
