@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rYM-Ae-5sW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rYM-Ae-5sW">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -445,7 +445,6 @@
                                         </state>
                                         <connections>
                                             <action selector="wishlistPressed:" destination="5E6-no-sNk" eventType="touchUpInside" id="KgO-0N-FQm"/>
-                                            <segue destination="RYv-7y-Grq" kind="show" id="gKq-tF-aXB"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -794,13 +793,16 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload .dae or .scn file" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFg-AD-zur">
-                                <rect key="frame" x="20" y="264.66666666666669" width="176" height="21"/>
+                                <rect key="frame" x="20" y="264.66666666666669" width="200" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Xmv-1g-qtT"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xkp-eE-Su5">
-                                <rect key="frame" x="226" y="260.33333333333331" width="100" height="30"/>
+                                <rect key="frame" x="250" y="260.33333333333331" width="100" height="30"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="pk0-MZ-tEM"/>
@@ -845,8 +847,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sl5-kj-9Cg">
-                                <rect key="frame" x="212" y="59" width="89" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sl5-kj-9Cg">
+                                <rect key="frame" x="212" y="59" width="120" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="46L-qZ-gBe"/>
+                                    <constraint firstAttribute="width" constant="120" id="sVd-sm-9tc"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Select Image"/>
                                 <connections>
                                     <segue destination="B8n-qc-Utg" kind="show" id="OoF-ee-XRN"/>
@@ -864,6 +872,7 @@
                             <constraint firstItem="GFg-AD-zur" firstAttribute="top" secondItem="673-qa-lii" secondAttribute="bottom" constant="30" id="T8Q-ha-MuY"/>
                             <constraint firstItem="0G5-FL-xqD" firstAttribute="leading" secondItem="kcn-1i-qkV" secondAttribute="leading" constant="20" id="UUZ-TP-eMB"/>
                             <constraint firstItem="WGV-We-Opu" firstAttribute="centerX" secondItem="2EA-SO-lfq" secondAttribute="centerX" id="Vg8-Lb-6sI"/>
+                            <constraint firstItem="sl5-kj-9Cg" firstAttribute="top" secondItem="kcn-1i-qkV" secondAttribute="top" constant="15" id="WCP-NQ-DBz"/>
                             <constraint firstItem="Xkp-eE-Su5" firstAttribute="leading" secondItem="GFg-AD-zur" secondAttribute="trailing" constant="30" id="Y3Z-zB-Njd"/>
                             <constraint firstItem="0G5-FL-xqD" firstAttribute="top" secondItem="kF9-4h-dGh" secondAttribute="bottom" constant="20" id="ZtI-mL-guP"/>
                             <constraint firstItem="LPE-3r-587" firstAttribute="leading" secondItem="kcn-1i-qkV" secondAttribute="leading" constant="20" id="a2g-zD-BWn"/>
@@ -891,11 +900,11 @@
             <objects>
                 <viewController title="Wish List" id="RYv-7y-Grq" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fHj-D4-v7j">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TaT-nt-glT">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="772"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="782"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.94999999999999996" height="1"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="7" minimumInteritemSpacing="7" id="4YI-jB-MSM">
@@ -937,7 +946,7 @@
                                 </connections>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="sbC-vC-oEG">
-                                <rect key="frame" x="10" y="777" width="394" height="60"/>
+                                <rect key="frame" x="10" y="831" width="394" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Wn-RE-Tjp">
                                         <rect key="frame" x="0.0" y="0.0" width="169.66666666666666" height="60"/>
@@ -1027,19 +1036,19 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.left.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="camera.circle" catalog="system" width="64" height="60"/>
-        <image name="chevron.down.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="chevron.left.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="chevron.right.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="chevron.up.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="arrow.left.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="camera.circle" catalog="system" width="128" height="121"/>
+        <image name="chevron.down.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="chevron.left.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="chevron.right.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="chevron.up.circle.fill" catalog="system" width="128" height="121"/>
         <image name="couch" width="1920" height="1080"/>
-        <image name="hand.thumbsup" catalog="system" width="64" height="64"/>
+        <image name="hand.thumbsup" catalog="system" width="128" height="128"/>
         <image name="ic_home" width="90" height="90"/>
-        <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
-        <image name="plus.rectangle.fill" catalog="system" width="64" height="46"/>
-        <image name="plus.rectangle.on.rectangle" catalog="system" width="64" height="48"/>
-        <image name="rotate.left.fill" catalog="system" width="64" height="64"/>
+        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
+        <image name="plus.rectangle.fill" catalog="system" width="128" height="93"/>
+        <image name="plus.rectangle.on.rectangle" catalog="system" width="128" height="98"/>
+        <image name="rotate.left.fill" catalog="system" width="128" height="128"/>
         <image name="table" width="800" height="450"/>
     </resources>
 </document>

@@ -51,7 +51,11 @@ class ImageBrowserViewController: UIDocumentBrowserViewController, UIDocumentBro
         // Present the Document View Controller for the first document that was picked.
         // If you support picking multiple items, make sure you handle them all.
         //presentDocument(at: sourceURL)
-        Delegate_AddObj?.imageV.image = UIImage(contentsOfFile: sourceURL.path)
+       
+        Delegate_AddObj?.imgDoc = UIDocument(fileURL: sourceURL)
+        //Delegate_AddObj?.imageV.image = UIImage(contentsOfFile: "\(sourceURL.path)")
+    
+        
         
 
         self.navigationController?.popViewController(animated: true)

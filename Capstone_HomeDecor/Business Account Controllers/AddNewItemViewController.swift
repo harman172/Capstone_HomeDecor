@@ -10,7 +10,9 @@ import UIKit
 
 class AddNewItemViewController: UIViewController {
 
+    var imgDoc: UIDocument?
     var objDoc: UIDocument?
+    
     
     @IBOutlet weak var objPathL: UILabel!
     
@@ -28,6 +30,21 @@ class AddNewItemViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+    
+        if let imgD = imgDoc{
+            setImage(doc: imgD)
+        }
+        
+       
+    }
+    
+    func setImage(doc : UIDocument){
+        
+        
+            self.imageV.image = UIImage(contentsOfFile: (doc.presentedItemURL!.path))
+    }
 
     
     // MARK: - Navigation
@@ -38,6 +55,11 @@ class AddNewItemViewController: UIViewController {
         // Pass the selected object to the new view controller.
         
         if let dest = segue.destination as? ObjectBrowserViewController{
+            
+            dest.Delegate_AddObj = self
+            
+        }
+        if let dest = segue.destination as? ImageBrowserViewController{
             
             dest.Delegate_AddObj = self
             

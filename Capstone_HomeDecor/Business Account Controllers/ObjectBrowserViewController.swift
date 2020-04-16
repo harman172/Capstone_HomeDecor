@@ -53,7 +53,8 @@ class ObjectBrowserViewController: UIDocumentBrowserViewController, UIDocumentBr
         //presentDocument(at: sourceURL)
         Delegate_AddObj?.objDoc = UIDocument(fileURL: sourceURL)
         
-        Delegate_AddObj?.objDescription.text = sourceURL.absoluteString
+        
+        Delegate_AddObj?.objPathL.text = sourceURL.lastPathComponent
         self.navigationController?.popViewController(animated: true)
     }
     
