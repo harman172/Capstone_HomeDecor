@@ -32,10 +32,6 @@ class SavedImagesVC: UIViewController , UICollectionViewDataSource , UICollectio
 //        let imageURL = URL(fileURLWithPath: paths).appendingPathComponent("\(indexPath.row).png")
 //        cell.imgViewCell.image = UIImage(contentsOfFile: imageURL.path)
         cell.imgViewCell.image = UIImage(contentsOfFile: imgPaths[indexPath.row])
-    
-        
-        
-        
         return cell
        }
     

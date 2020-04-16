@@ -30,7 +30,8 @@
 		B52FA44C244548BA00EAD3B1 /* BusinessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52FA44B244548BA00EAD3B1 /* BusinessCell.swift */; };
 		B54B7B9924479ADC00C14313 /* BusinessCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54B7B9824479ADC00C14313 /* BusinessCollectionViewCell.swift */; };
 		F22E8BE7244249EE008915FE /* LoginRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22E8BE6244249EE008915FE /* LoginRegisterVC.swift */; };
-		F2C623CD2447C91500F76440 /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C623CC2447C91500F76440 /* DocumentBrowserViewController.swift */; };
+		F2A74C952447E22800A9DF39 /* ImageBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A74C942447E22800A9DF39 /* ImageBrowser.swift */; };
+		F2C623CD2447C91500F76440 /* ObjectBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C623CC2447C91500F76440 /* ObjectBrowserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,7 +62,8 @@
 		B54B7B9824479ADC00C14313 /* BusinessCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessCollectionViewCell.swift; sourceTree = "<group>"; };
 		C7301CA5219BDEA656A13A79 /* Pods-Capstone_HomeDecor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capstone_HomeDecor.debug.xcconfig"; path = "Target Support Files/Pods-Capstone_HomeDecor/Pods-Capstone_HomeDecor.debug.xcconfig"; sourceTree = "<group>"; };
 		F22E8BE6244249EE008915FE /* LoginRegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRegisterVC.swift; sourceTree = "<group>"; };
-		F2C623CC2447C91500F76440 /* DocumentBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentBrowserViewController.swift; sourceTree = "<group>"; };
+		F2A74C942447E22800A9DF39 /* ImageBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageBrowser.swift; sourceTree = "<group>"; };
+		F2C623CC2447C91500F76440 /* ObjectBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectBrowserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +99,13 @@
 		B5011CEB24469AB8004456C0 /* Business Account Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F2A74C942447E22800A9DF39 /* ImageBrowser.swift */,
 				B5011CE9244693A3004456C0 /* ContainerViewController.swift */,
 				B5011CEC24469B09004456C0 /* SideMenuTableViewController.swift */,
 				B5011CEE24469DD6004456C0 /* SlideInTransition.swift */,
 				B52E245624427CA700E7D19B /* BusinessHomeVC.swift */,
 				B5011CF02446A196004456C0 /* AddNewItemViewController.swift */,
-				F2C623CC2447C91500F76440 /* DocumentBrowserViewController.swift */,
+				F2C623CC2447C91500F76440 /* ObjectBrowserViewController.swift */,
 				B54B7B9824479ADC00C14313 /* BusinessCollectionViewCell.swift */,
 			);
 			path = "Business Account Controllers";
@@ -301,9 +304,10 @@
 				B52FA44C244548BA00EAD3B1 /* BusinessCell.swift in Sources */,
 				44C164742442C49100D76E2D /* SavedImagesVC.swift in Sources */,
 				B52E244024423C5200E7D19B /* AppDelegate.swift in Sources */,
-				F2C623CD2447C91500F76440 /* DocumentBrowserViewController.swift in Sources */,
+				F2C623CD2447C91500F76440 /* ObjectBrowserViewController.swift in Sources */,
 				B5011CEF24469DD6004456C0 /* SlideInTransition.swift in Sources */,
 				B5011CF12446A196004456C0 /* AddNewItemViewController.swift in Sources */,
+				F2A74C952447E22800A9DF39 /* ImageBrowser.swift in Sources */,
 				B52E244424423C5200E7D19B /* Experience.rcproject in Sources */,
 				B52E245724427CA700E7D19B /* BusinessHomeVC.swift in Sources */,
 				44C164722442C48A00D76E2D /* ObjectDescVC.swift in Sources */,

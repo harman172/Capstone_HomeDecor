@@ -37,7 +37,7 @@ class AddNewItemViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         
-        if let dest = segue.destination as? DocumentBrowserViewController{
+        if let dest = segue.destination as? ObjectBrowserViewController{
             
             dest.Delegate_AddObj = self
             
