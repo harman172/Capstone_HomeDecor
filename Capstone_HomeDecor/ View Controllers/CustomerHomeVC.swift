@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class CustomerHomeVC:UIViewController , UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
   
     @IBOutlet weak var savedImgBtn: UIButton!
-    
+    static var username:String?
     @IBOutlet weak var wishBtn: UIButton!
     let items:[String] = ["table" , "chair" , "couch"]
     
@@ -20,7 +21,7 @@ class CustomerHomeVC:UIViewController , UICollectionViewDelegate , UICollectionV
         super.viewDidLoad()
         wishBtn.layer.cornerRadius = 10
         savedImgBtn.layer.cornerRadius = 10
-        
+      
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,7 +69,20 @@ class CustomerHomeVC:UIViewController , UICollectionViewDelegate , UICollectionV
       
       }
       
-      
+    @IBAction func logoutPressed(_ sender: UIButton) {
+        
+        do {
+            try Auth.auth().signOut()
+           
+            let destVC = storyboard?.instantiateViewController(withIdentifier: "loginRegisterVC") as! LoginRegisterVC
+            navigationController?.pushViewController(destVC, animated: true)
+            
+            } catch let err {
+                print(err)
+        }
+        
+    }
+    
       
       // MARK: Wishlist screen
       @IBAction func wishlistPressed(_ sender: UIButton) {

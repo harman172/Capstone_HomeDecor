@@ -30,6 +30,12 @@ class LoginRegisterVC: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
 
     func validateFields() -> String?{
         if(loginRegBtn.titleLabel?.text == "Register"){
@@ -87,9 +93,12 @@ class LoginRegisterVC: UIViewController {
                 let password = passwordTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                 Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
                     if error != nil{
+                        
                         self.errorLabel.isHidden = false
                         self.errorLabel.text = error!.localizedDescription
                     } else{
+                        let username = self.emailTF.text!.components(separatedBy: "@")
+                        CustomerHomeVC.username = username[0]
                         let db = Firestore.firestore()
                         let docReference = db.collection("users").document(result!.user.uid)
                         docReference.getDocument { (document, error) in

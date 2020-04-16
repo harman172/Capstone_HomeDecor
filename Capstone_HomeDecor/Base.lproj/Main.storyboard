@@ -20,7 +20,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="dXH-gP-KIN" kind="relationship" relationship="rootViewController" id="Rrf-Gl-fKu"/>
+                        <segue destination="5E6-no-sNk" kind="relationship" relationship="rootViewController" id="oGl-oE-3Kf"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uoO-n5-MUz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -375,7 +375,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Dus-ze-idC">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="553"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.94999999999999996" height="1"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="7" minimumInteritemSpacing="7" id="yRD-vM-YSx">
@@ -463,7 +463,21 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Psh-o2-3bW"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="nlV-xU-XL4"/>
+                    <navigationItem key="navigationItem" title="Home" id="nlV-xU-XL4">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="zes-0p-djZ">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xwG-hd-wUU">
+                                <rect key="frame" x="276" y="4" width="83" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" red="0.062630452219999994" green="0.60919129849999998" blue="0.89807403090000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutPressed:" destination="5E6-no-sNk" eventType="touchUpInside" id="Dvc-Rc-8EF"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="savedImgBtn" destination="cSi-KT-2Me" id="KuE-g5-TW0"/>
                         <outlet property="wishBtn" destination="5OB-1u-yek" id="RRx-a7-sUn"/>
@@ -873,11 +887,8 @@
                                 </state>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Add description..." textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="0G5-FL-xqD">
-                                <rect key="frame" x="20" y="351.5" width="335" height="250"/>
+                                <rect key="frame" x="20" y="351.5" width="335" height="250.5"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="6F3-TY-w8r"/>
-                                </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -901,6 +912,7 @@
                             <constraint firstItem="sl5-kj-9Cg" firstAttribute="leading" secondItem="LPE-3r-587" secondAttribute="trailing" constant="30" id="117-Sf-XSa"/>
                             <constraint firstItem="kF9-4h-dGh" firstAttribute="top" secondItem="GFg-AD-zur" secondAttribute="bottom" constant="50" id="1zM-BG-Bff"/>
                             <constraint firstItem="673-qa-lii" firstAttribute="centerX" secondItem="2EA-SO-lfq" secondAttribute="centerX" id="7rN-l5-8Ai"/>
+                            <constraint firstItem="0G5-FL-xqD" firstAttribute="top" secondItem="kF9-4h-dGh" secondAttribute="bottom" constant="20" id="B6z-dE-xhO"/>
                             <constraint firstItem="kcn-1i-qkV" firstAttribute="trailing" secondItem="0G5-FL-xqD" secondAttribute="trailing" constant="20" id="GXw-Ay-yHL"/>
                             <constraint firstItem="kF9-4h-dGh" firstAttribute="leading" secondItem="kcn-1i-qkV" secondAttribute="leading" constant="20" id="KvK-NA-T7M"/>
                             <constraint firstItem="kcn-1i-qkV" firstAttribute="trailing" secondItem="kF9-4h-dGh" secondAttribute="trailing" constant="20" id="L0m-8P-WmL"/>
@@ -908,8 +920,8 @@
                             <constraint firstItem="0G5-FL-xqD" firstAttribute="leading" secondItem="kcn-1i-qkV" secondAttribute="leading" constant="20" id="UUZ-TP-eMB"/>
                             <constraint firstItem="WGV-We-Opu" firstAttribute="centerX" secondItem="2EA-SO-lfq" secondAttribute="centerX" id="Vg8-Lb-6sI"/>
                             <constraint firstItem="sl5-kj-9Cg" firstAttribute="top" secondItem="kcn-1i-qkV" secondAttribute="top" constant="15" id="WCP-NQ-DBz"/>
+                            <constraint firstItem="WGV-We-Opu" firstAttribute="top" secondItem="0G5-FL-xqD" secondAttribute="bottom" constant="5" id="Xtg-8i-bJ4"/>
                             <constraint firstItem="Xkp-eE-Su5" firstAttribute="leading" secondItem="GFg-AD-zur" secondAttribute="trailing" constant="30" id="Y3Z-zB-Njd"/>
-                            <constraint firstItem="0G5-FL-xqD" firstAttribute="top" secondItem="kF9-4h-dGh" secondAttribute="bottom" constant="20" id="ZtI-mL-guP"/>
                             <constraint firstItem="LPE-3r-587" firstAttribute="leading" secondItem="kcn-1i-qkV" secondAttribute="leading" constant="20" id="a2g-zD-BWn"/>
                             <constraint firstItem="LPE-3r-587" firstAttribute="top" secondItem="kcn-1i-qkV" secondAttribute="top" constant="20" id="axp-Gt-JUK"/>
                             <constraint firstItem="673-qa-lii" firstAttribute="top" secondItem="LPE-3r-587" secondAttribute="bottom" constant="10" id="c5a-tq-Pet"/>

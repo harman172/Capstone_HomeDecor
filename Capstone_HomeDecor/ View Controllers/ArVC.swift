@@ -8,6 +8,8 @@
 
 import UIKit
 import ARKit
+import FirebaseAuth
+
 
 class ArVC: UIViewController {
     
@@ -101,13 +103,33 @@ class ArVC: UIViewController {
         
         }
         let fileManager = FileManager.default
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
-        let dirContents = try? fileManager.contentsOfDirectory(atPath: documentsPath)
+        
+    do {let newdir = directory.appendingPathComponent("\(CustomerHomeVC.username!)")
+    
+    do {
+        try fileManager.createDirectory(atPath: newdir!.path, withIntermediateDirectories: true, attributes: nil)
+    }   catch let error as NSError
+              {
+                  print("Unable to create directory \(error.debugDescription)")
+              }
+        
+        
+        
+        
+       // let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+        
+        let dirContents = try? fileManager.contentsOfDirectory(atPath: newdir!.path)
         let count = dirContents?.count
         
         print(count as Any)
-        do {
-            let stringPath = directory.appendingPathComponent("\(count ?? 0).png")!
+        
+        
+    
+       
+        
+        
+            let stringPath = newdir!.appendingPathComponent("\(count ?? 0).png")
+            print(stringPath)
                 try  data.write(to: stringPath )
                 print("----actual path---")
                 print(stringPath)
@@ -115,6 +137,7 @@ class ArVC: UIViewController {
             
             return true
         } catch {
+            print("--------ERROR----------")
             print(error.localizedDescription)
             return false
         }

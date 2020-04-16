@@ -70,9 +70,12 @@ class SavedImagesVC: UIViewController , UICollectionViewDataSource , UICollectio
     
     
     func numberOfFile() ->Int {
-        let fileManager = FileManager.default
-                  let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
-                  let dirContents = try? fileManager.contentsOfDirectory(atPath: documentsPath)
+                    let fileManager = FileManager.default
+        
+         let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL
+        
+        let newdir = directory!.appendingPathComponent("\(CustomerHomeVC.username!)")
+        let dirContents = try? fileManager.contentsOfDirectory(atPath: newdir!.path)
               
                   let count = dirContents?.count
                 
@@ -82,11 +85,14 @@ class SavedImagesVC: UIViewController , UICollectionViewDataSource , UICollectio
     func getPaths() {
         imgPaths = [String]()
         for i in 0..<numberOfFile(){
-            let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+//            let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+            let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL
             let fileManager = FileManager.default
-            let dirContents = try? fileManager.contentsOfDirectory(atPath: paths)
-            let imageURL = URL(fileURLWithPath: paths).appendingPathComponent("\(dirContents![i])")
+            let newdir = directory!.appendingPathComponent("\(CustomerHomeVC.username!)")
+            let dirContents = try? fileManager.contentsOfDirectory(atPath: newdir!.path)
+            let imageURL = URL(fileURLWithPath: newdir!.path).appendingPathComponent("\(dirContents![i])")
            
+            print(imageURL)
             
             imgPaths.append(imageURL.path)
            
