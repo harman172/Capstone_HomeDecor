@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rYM-Ae-5sW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rYM-Ae-5sW">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,7 +20,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="dXH-gP-KIN" kind="relationship" relationship="rootViewController" id="KMw-I2-MTg"/>
+                        <segue destination="eZh-EQ-Vof" kind="relationship" relationship="rootViewController" id="ax8-me-EG0"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uoO-n5-MUz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -472,7 +472,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxP-VE-VK0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1414" y="446"/>
+            <point key="canvasLocation" x="1271" y="394"/>
         </scene>
         <!--Object DescVC-->
         <scene sceneID="zb2-z0-7TJ">
@@ -808,6 +808,9 @@
                                 <state key="normal" title="Browse...">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="cGU-9K-rCO" kind="show" id="Xg7-Ec-1zK"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter title" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kF9-4h-dGh">
                                 <rect key="frame" x="20" y="335.33333333333331" width="374" height="40"/>
@@ -864,6 +867,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kcn-1i-qkV"/>
                     </view>
+                    <connections>
+                        <outlet property="imageV" destination="673-qa-lii" id="7Sy-ac-EQT"/>
+                        <outlet property="objDescription" destination="0G5-FL-xqD" id="pQL-8F-yrz"/>
+                        <outlet property="objPathL" destination="GFg-AD-zur" id="PwY-cI-7VR"/>
+                        <outlet property="titleL" destination="kF9-4h-dGh" id="mMp-xh-mco"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kil-IK-ckI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -975,6 +984,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cmp-fU-ITZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2634" y="1213"/>
+        </scene>
+        <!--Document Browser View Controller-->
+        <scene sceneID="kIj-3p-lkG">
+            <objects>
+                <viewController id="cGU-9K-rCO" customClass="DocumentBrowserViewController" customModule="file1234" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rc2-So-rJy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="aQ6-gS-0ZB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="84X-da-oy9"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rqm-eY-x7M" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4357" y="-640"/>
         </scene>
     </scenes>
     <resources>
