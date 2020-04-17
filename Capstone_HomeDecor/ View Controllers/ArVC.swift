@@ -61,7 +61,7 @@ class ArVC: UIViewController, UIPopoverPresentationControllerDelegate {
         
         self.sceneView.autoenablesDefaultLighting = true
         self.sceneView.session.run(configuration)
-        self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+//        self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
        
        
     }
@@ -188,7 +188,7 @@ class ArVC: UIViewController, UIPopoverPresentationControllerDelegate {
         
         var scaleFactor = Float(scaleTF.text!) ?? 1.0
         CurrentNode?.scale = SCNVector3Make(scaleFactor, scaleFactor, scaleFactor)
-        
+        scaleTF.resignFirstResponder()
     }
     
     @IBAction func addNewObj(_ sender: UIButton) {

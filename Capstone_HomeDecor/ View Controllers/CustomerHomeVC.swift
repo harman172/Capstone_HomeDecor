@@ -32,7 +32,7 @@ class CustomerHomeVC:UIViewController , UICollectionViewDelegate , UICollectionV
     
     override func viewWillAppear(_ animated: Bool) {
         
-        
+       // navigationItem.setHidesBackButton(true, animated: animated)
         if(CustomerHomeVC.multipleObjMode && tryBtnPressed!){
             
             tryBtnPressed = false

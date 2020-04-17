@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rYM-Ae-5sW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rYM-Ae-5sW">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,7 +20,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="5E6-no-sNk" kind="relationship" relationship="rootViewController" id="oGl-oE-3Kf"/>
+                        <segue destination="dXH-gP-KIN" kind="relationship" relationship="rootViewController" id="UIy-pw-v5i"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uoO-n5-MUz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -52,7 +52,7 @@
                                             <constraint firstAttribute="height" constant="40" id="LK1-3Y-J6y"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4cm-Z5-xuE">
                                         <rect key="frame" x="0.0" y="50" width="295" height="40"/>
@@ -375,7 +375,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Dus-ze-idC">
-                                <rect key="frame" x="0.0" y="44" width="375" height="553"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.94999999999999996" height="1"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="7" minimumInteritemSpacing="7" id="yRD-vM-YSx">
@@ -631,15 +631,15 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R30-2Y-8qb">
-                                <rect key="frame" x="10" y="513" width="60" height="34"/>
+                                <rect key="frame" x="10" y="10" width="60" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="qRZ-Xl-9hD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sz4-r7-1mo">
-                                <rect key="frame" x="80" y="513" width="55" height="34"/>
+                                <rect key="frame" x="80" y="10" width="55" height="34"/>
                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="55" id="vA8-uj-IsO"/>
@@ -652,9 +652,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roC-yd-1LM">
-                                <rect key="frame" x="296" y="20" width="59" height="57"/>
+                                <rect key="frame" x="324" y="10" width="41" height="40"/>
                                 <state key="normal" image="plus.circle.fill" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" scale="medium"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="35" scale="medium"/>
                                 </state>
                                 <connections>
                                     <action selector="addNewObj:" destination="RCk-Uk-7l0" eventType="touchUpInside" id="QeT-v8-N33"/>
@@ -670,7 +670,7 @@
                             <constraint firstItem="ZFA-6f-QXE" firstAttribute="leading" secondItem="pPt-ed-FOI" secondAttribute="leading" constant="10" id="9Qu-oZ-jQz"/>
                             <constraint firstItem="R30-2Y-8qb" firstAttribute="leading" secondItem="pPt-ed-FOI" secondAttribute="leading" constant="10" id="9f4-Q8-Z5m"/>
                             <constraint firstItem="urJ-n7-Ac5" firstAttribute="leading" secondItem="ZFA-6f-QXE" secondAttribute="trailing" constant="10" id="BNQ-xu-Vdy"/>
-                            <constraint firstItem="roC-yd-1LM" firstAttribute="top" secondItem="pPt-ed-FOI" secondAttribute="top" constant="20" id="Ezn-1A-8LW"/>
+                            <constraint firstItem="roC-yd-1LM" firstAttribute="top" secondItem="pPt-ed-FOI" secondAttribute="top" constant="10" id="Ezn-1A-8LW"/>
                             <constraint firstItem="pPt-ed-FOI" firstAttribute="bottom" secondItem="1wk-Pu-Ysj" secondAttribute="bottom" constant="10" id="FfR-SS-a0i"/>
                             <constraint firstItem="pPt-ed-FOI" firstAttribute="trailing" secondItem="1wk-Pu-Ysj" secondAttribute="trailing" constant="10" id="KCo-Sp-dqS"/>
                             <constraint firstItem="JVo-Cj-Maj" firstAttribute="top" secondItem="pPt-ed-FOI" secondAttribute="top" id="LyC-IF-S4P"/>
@@ -679,12 +679,12 @@
                             <constraint firstItem="gCa-Gn-N8h" firstAttribute="leading" secondItem="tLa-Rk-b7x" secondAttribute="trailing" constant="20" id="X9z-QG-AAf"/>
                             <constraint firstItem="tLa-Rk-b7x" firstAttribute="leading" secondItem="urJ-n7-Ac5" secondAttribute="trailing" constant="10" id="Z9Q-aP-pt0"/>
                             <constraint firstItem="pPt-ed-FOI" firstAttribute="bottom" secondItem="JVo-Cj-Maj" secondAttribute="bottom" id="aEV-Yn-wyo"/>
-                            <constraint firstItem="pPt-ed-FOI" firstAttribute="trailing" secondItem="roC-yd-1LM" secondAttribute="trailing" constant="20" id="fwx-YX-Yxx"/>
+                            <constraint firstItem="R30-2Y-8qb" firstAttribute="top" secondItem="pPt-ed-FOI" secondAttribute="top" constant="10" id="dbz-nB-kfw"/>
+                            <constraint firstItem="pPt-ed-FOI" firstAttribute="trailing" secondItem="roC-yd-1LM" secondAttribute="trailing" constant="10" id="fwx-YX-Yxx"/>
                             <constraint firstItem="84F-wT-ODk" firstAttribute="leading" secondItem="ZFA-6f-QXE" secondAttribute="trailing" constant="10" id="i9i-gn-xfq"/>
                             <constraint firstItem="pPt-ed-FOI" firstAttribute="trailing" secondItem="JVo-Cj-Maj" secondAttribute="trailing" id="nAB-vE-GyC"/>
-                            <constraint firstItem="tLa-Rk-b7x" firstAttribute="top" secondItem="sz4-r7-1mo" secondAttribute="bottom" constant="65" id="rXA-Px-bWX"/>
-                            <constraint firstItem="84F-wT-ODk" firstAttribute="top" secondItem="R30-2Y-8qb" secondAttribute="bottom" constant="10" id="sGX-CA-NWr"/>
                             <constraint firstItem="urJ-n7-Ac5" firstAttribute="top" secondItem="84F-wT-ODk" secondAttribute="bottom" constant="10" id="si1-3C-hij"/>
+                            <constraint firstItem="sz4-r7-1mo" firstAttribute="top" secondItem="pPt-ed-FOI" secondAttribute="top" constant="10" id="xFc-ld-TlQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pPt-ed-FOI"/>
                     </view>
@@ -700,7 +700,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vwv-Pg-hha" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3434" y="382"/>
+            <point key="canvasLocation" x="3432.8000000000002" y="381.85907046476763"/>
         </scene>
         <!--Saved ImagesVC-->
         <scene sceneID="clW-ZS-yBL">
@@ -795,7 +795,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CzP-ql-vPN">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CzP-ql-vPN">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t99-kl-mJU">
@@ -1094,20 +1094,20 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.left.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="camera.circle" catalog="system" width="64" height="60"/>
-        <image name="chevron.down.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="chevron.left.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="chevron.right.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="chevron.up.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="arrow.left.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="camera.circle" catalog="system" width="128" height="121"/>
+        <image name="chevron.down.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="chevron.left.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="chevron.right.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="chevron.up.circle.fill" catalog="system" width="128" height="121"/>
         <image name="couch" width="1920" height="1080"/>
-        <image name="hand.thumbsup" catalog="system" width="64" height="64"/>
+        <image name="hand.thumbsup" catalog="system" width="128" height="128"/>
         <image name="ic_home" width="90" height="90"/>
-        <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
-        <image name="plus.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="plus.rectangle.fill" catalog="system" width="64" height="46"/>
-        <image name="plus.rectangle.on.rectangle" catalog="system" width="64" height="48"/>
-        <image name="rotate.left.fill" catalog="system" width="64" height="64"/>
+        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="plus.rectangle.fill" catalog="system" width="128" height="93"/>
+        <image name="plus.rectangle.on.rectangle" catalog="system" width="128" height="98"/>
+        <image name="rotate.left.fill" catalog="system" width="128" height="128"/>
         <image name="table" width="800" height="450"/>
     </resources>
 </document>
