@@ -13,20 +13,33 @@ class CustomerHomeVC:UIViewController , UICollectionViewDelegate , UICollectionV
   
     @IBOutlet weak var savedImgBtn: UIButton!
     static var username:String?
+    static var multipleObjMode = false
+    
     @IBOutlet weak var wishBtn: UIButton!
     let items:[String] = ["table" , "chair" , "couch"]
-    
+    var tryBtnPressed: Bool?
+    var del_ARVC: ArVC?
+   
 
     override func viewDidLoad() {
+        tryBtnPressed = false
         super.viewDidLoad()
         wishBtn.layer.cornerRadius = 10
         savedImgBtn.layer.cornerRadius = 10
       
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
-        navigationItem.hidesBackButton = true
+        
+        
+        if(CustomerHomeVC.multipleObjMode && tryBtnPressed!){
+            
+            tryBtnPressed = false
+            navigationController?.popViewController(animated: true)
+        }
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
           return items.count
@@ -55,6 +68,7 @@ class CustomerHomeVC:UIViewController , UICollectionViewDelegate , UICollectionV
           let destVC = storyboard?.instantiateViewController(identifier: "objectDescVC") as! ObjectDescVC
 
             destVC.imageName = selectedItemName
+            destVC.del_CustomerHomeVC = self
 
           navigationController?.pushViewController(destVC, animated: true)
           

@@ -22,6 +22,7 @@ class ObjectDescVC: UIViewController {
     
     var imageName:String?
     var liked:Bool = false
+    var del_CustomerHomeVC : CustomerHomeVC?
     
     
     override func viewDidLoad() {
@@ -33,11 +34,21 @@ class ObjectDescVC: UIViewController {
 
     @IBAction func tryButtonPressed(_ sender: UIButton) {
         
-        let destVC = storyboard?.instantiateViewController(identifier: "arVC") as! ArVC
-        destVC.nodeName = imageName
-        navigationController?.pushViewController(destVC, animated: true)
-        
-        
+        if (!CustomerHomeVC.multipleObjMode){
+            print("new VC created")
+            let destVC = storyboard?.instantiateViewController(identifier: "arVC") as! ArVC
+            destVC.nodeToAdd = imageName
+            navigationController?.pushViewController(destVC, animated: true)
+            
+            
+            
+        }else{
+             print("old VC used")
+            navigationController?.popViewController(animated: true)
+            del_CustomerHomeVC?.tryBtnPressed = true
+            del_CustomerHomeVC?.del_ARVC?.nodeToAdd = imageName
+            
+        }
         print(imageName!)
         
     }

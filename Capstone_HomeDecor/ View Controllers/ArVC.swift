@@ -11,7 +11,7 @@ import ARKit
 import FirebaseAuth
 
 
-class ArVC: UIViewController {
+class ArVC: UIViewController, UIPopoverPresentationControllerDelegate {
     
     @IBOutlet weak var rotateBtn: UIButton!
     @IBOutlet weak var upBtn: UIButton!
@@ -23,9 +23,10 @@ class ArVC: UIViewController {
     
     @IBOutlet weak var sceneView: ARSCNView!
     let configuration = ARWorldTrackingConfiguration()
-    var nodeName:String?
     
-    var CurrentNode: SCNNode?
+    
+    var CurrentNode: SCNNode!
+    var nodeToAdd : String!
     
     
     override func viewDidLoad() {
@@ -62,19 +63,26 @@ class ArVC: UIViewController {
         self.sceneView.session.run(configuration)
         self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
        
-        
-        
-        let node = SCNScene(named: "art.scnassets/\(nodeName!).scn")
-        CurrentNode = node?.rootNode.childNode(withName: "\(nodeName!)", recursively: true)
-        CurrentNode?.position = SCNVector3(-0.5,-1,-2)
-        self.sceneView.scene.rootNode.addChildNode(CurrentNode!)
-        
-        
-        
-        
        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        CustomerHomeVC.multipleObjMode = false
+        addNewItem(nodeName: nodeToAdd)
+    }
+    
+    func addNewItem(nodeName: String){
+        let node = SCNScene(named: "art.scnassets/\(nodeName).scn")
+        
+         
+         CurrentNode = node?.rootNode.childNode(withName: "\(nodeName)", recursively: true)
+         CurrentNode?.position = SCNVector3(-0.5,-1,-2)
+         self.sceneView.scene.rootNode.addChildNode(CurrentNode!)
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
     
     @IBAction func captureButtonPressed(_ sender: UIButton) {
         
@@ -186,7 +194,8 @@ class ArVC: UIViewController {
     @IBAction func addNewObj(_ sender: UIButton) {
         
         let homeVC = storyboard?.instantiateViewController(identifier: "CustomerVC") as! CustomerHomeVC
-        
+        homeVC.del_ARVC = self
+        CustomerHomeVC.multipleObjMode = true
         navigationController?.pushViewController(homeVC, animated: true)
         
     }
