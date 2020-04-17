@@ -183,5 +183,13 @@ class ArVC: UIViewController {
         
     }
     
+    @IBAction func addNewObj(_ sender: UIButton) {
+        
+        let homeVC = storyboard?.instantiateViewController(identifier: "CustomerVC") as! CustomerHomeVC
+        
+        navigationController?.pushViewController(homeVC, animated: true)
+        
+    }
+    
 }
 

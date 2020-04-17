@@ -37,6 +37,7 @@ class ObjectDescVC: UIViewController {
         destVC.nodeName = imageName
         navigationController?.pushViewController(destVC, animated: true)
         
+        
         print(imageName!)
         
     }
