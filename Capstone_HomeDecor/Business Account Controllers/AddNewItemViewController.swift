@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseStorage
+import Kingfisher
+
 
 class AddNewItemViewController: UIViewController {
 
@@ -32,20 +36,48 @@ class AddNewItemViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-    
         if let imgD = imgDoc{
             setImage(doc: imgD)
         }
         
-       
+        
     }
     
+    
+    
     func setImage(doc : UIDocument){
-        
-        
             self.imageV.image = UIImage(contentsOfFile: (doc.presentedItemURL!.path))
     }
 
+    @IBAction func btnUploadTapped(_ sender: UIButton) {
+        uploadImageToFirebaseStorage()
+    }
+    
+    func uploadImageToFirebaseStorage(){
+        guard let image = imageV.image, let data = image.jpegData(compressionQuality: 1.0) else {
+            print("Something went wrong!!")
+            return
+        }
+        
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        let imageName = UUID().uuidString
+        let imageReference = Storage.storage().reference()
+            .child("Uploaded Images").child(uid).child(imageName)
+        
+        imageReference.putData(data, metadata: nil) { (metadata, error) in
+            if let error = error{
+                print("error....\(error.localizedDescription)")
+                return
+            }
+            
+            print("Image uploaded successfully!!!")
+        }
+        
+        
+    }
+    
     
     // MARK: - Navigation
 

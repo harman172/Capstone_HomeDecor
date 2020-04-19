@@ -14,5 +14,7 @@ target 'Capstone_HomeDecor' do
 	pod 'Firebase/Firestore'
 	pod 'Firebase/Core'
 	pod 'FirebaseFirestoreSwift'
+	pod 'Firebase/Storage'
+	pod 'Kingfisher', '~> 5.3'
 
 end

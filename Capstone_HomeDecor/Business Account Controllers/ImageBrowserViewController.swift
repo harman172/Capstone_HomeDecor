@@ -54,10 +54,6 @@ class ImageBrowserViewController: UIDocumentBrowserViewController, UIDocumentBro
        
         Delegate_AddObj?.imgDoc = UIDocument(fileURL: sourceURL)
         //Delegate_AddObj?.imageV.image = UIImage(contentsOfFile: "\(sourceURL.path)")
-    
-        
-        
-
         self.navigationController?.popViewController(animated: true)
     }
     

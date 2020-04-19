@@ -52,8 +52,6 @@ class ObjectBrowserViewController: UIDocumentBrowserViewController, UIDocumentBr
         // If you support picking multiple items, make sure you handle them all.
         //presentDocument(at: sourceURL)
         Delegate_AddObj?.objDoc = UIDocument(fileURL: sourceURL)
-        
-        
         Delegate_AddObj?.objPathL.text = sourceURL.lastPathComponent
         self.navigationController?.popViewController(animated: true)
     }

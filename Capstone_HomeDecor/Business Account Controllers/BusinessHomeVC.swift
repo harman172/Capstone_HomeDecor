@@ -30,7 +30,7 @@ class BusinessHomeVC: UIViewController, UICollectionViewDelegate, UICollectionVi
             print("User don't exist")
         }
         if let u = user{
-            print("Email id : \(u.email)")
+            print("Email id : \(u.email ?? "default email")")
         }
         
     }
