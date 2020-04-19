@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseStorage
 import Kingfisher
+import FirebaseFirestore
 
 
 class AddNewItemViewController: UIViewController {
@@ -42,15 +43,14 @@ class AddNewItemViewController: UIViewController {
         
         
     }
-    
-    
-    
     func setImage(doc : UIDocument){
             self.imageV.image = UIImage(contentsOfFile: (doc.presentedItemURL!.path))
     }
 
     @IBAction func btnUploadTapped(_ sender: UIButton) {
-        uploadImageToFirebaseStorage()
+//        uploadImageToFirebaseStorage()
+        print(objDoc!.presentedItemURL)
+        uploadFileToFirebaseStorage(u: objDoc!.presentedItemURL!)
     }
     
     func uploadImageToFirebaseStorage(){
@@ -58,7 +58,6 @@ class AddNewItemViewController: UIViewController {
             print("Something went wrong!!")
             return
         }
-        
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
@@ -76,6 +75,53 @@ class AddNewItemViewController: UIViewController {
         }
         
         
+    }
+    func uploadFileToFirebaseStorage(u: URL){
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        let fileName = UUID().uuidString
+        let fileReference = Storage.storage().reference()
+            .child("Uploaded Files").child(uid).child(fileName)
+        
+        fileReference.putFile(from: u, metadata: nil) { (metadata, error) in
+            if let error = error{
+                print("error....\(error.localizedDescription)")
+                return
+            }
+            
+            fileReference.downloadURL { (url, err) in
+                if let error = error{
+                    print("error....\(error.localizedDescription)")
+                    return
+                }
+                
+                guard let url = url else{
+                    print("Error...Something went wrong")
+                    return
+                }
+                let urlString = url.absoluteString
+                
+                //document id for data reference
+                let dataReference = Firestore.firestore().collection("business").document(uid)
+                
+                let data = [
+                    "doc": urlString
+                ]
+                
+                dataReference.setData(data, merge: true) { (err) in
+                    if let err = err{
+                        print("error data....\(err.localizedDescription)")
+                        return
+                    }
+                    print("Success storing document")
+                }
+            
+            }
+            print("Document uploaded successfully!!!")
+            
+        }
     }
     
     

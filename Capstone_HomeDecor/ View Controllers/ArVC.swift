@@ -74,6 +74,8 @@ class ArVC: UIViewController, UIPopoverPresentationControllerDelegate {
     func addNewItem(nodeName: String){
         let node = SCNScene(named: "art.scnassets/\(nodeName).scn")
         
+//        let a = SCNScene(url: <#T##URL#>, options: [SCNSceneSource.LoadingOption : Any]?)
+        
          
          CurrentNode = node?.rootNode.childNode(withName: "\(nodeName)", recursively: true)
          CurrentNode?.position = SCNVector3(-0.5,-1,-2)

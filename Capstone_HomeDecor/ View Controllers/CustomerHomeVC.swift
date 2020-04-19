@@ -25,6 +25,7 @@ class CustomerHomeVC: UIViewController , UICollectionViewDelegate , UICollection
     @IBOutlet weak var wishBtn: UIButton!
 //    let items:[String] = ["table" , "chair" , "couch"]
     var items = [String]()
+    var docs = [URL]()
     var tempArray = [String]()
     var tryBtnPressed: Bool?
     var del_ARVC: ArVC?
@@ -35,7 +36,8 @@ class CustomerHomeVC: UIViewController , UICollectionViewDelegate , UICollection
         super.viewDidLoad()
         wishBtn.layer.cornerRadius = 10
         savedImgBtn.layer.cornerRadius = 10
-        loadImages()
+//        loadImages()
+//        loadFiles()
 //        print("count...\(Constants.items.count)")
         
         
@@ -43,8 +45,10 @@ class CustomerHomeVC: UIViewController , UICollectionViewDelegate , UICollection
     
     func loadImages(){
         let db = Firestore.firestore()
+        
         // get all business account's ids
         db.collection("business").getDocuments { (snapshot, err) in
+            
             if let err = err{
                 print("something is wrong here. \(err.localizedDescription)")
                 return
@@ -68,21 +72,44 @@ class CustomerHomeVC: UIViewController , UICollectionViewDelegate , UICollection
                         self.items = self.tempArray
                         print("this count...\(self.items.count).....\(self.tempArray.count)")
                         self.collectionView.reloadData()
-                        
-                        
                     }
                 }
             }
         }
         
-//        //fetch images
-//        for item in items{
-//            let imagePath = Storage.storage().reference().child(item)
-//            imagePath.downloadURL { (url, error) in
-//
-//            }
-//        }
-        
+    }
+    
+    func loadFiles(){
+        let db = Firestore.firestore()
+        db.collection("business").getDocuments { (snapshot, err) in
+            if let err = err{
+                print("something is wrong here. \(err.localizedDescription)")
+                return
+            }
+            
+            for document in snapshot!.documents {
+                print("------------------------------")
+                print("document id: \(document.documentID)")
+                let storageRef = Storage.storage().reference()
+                    .child("Uploaded Files")
+                    .child(document.documentID)
+                storageRef.listAll { (result, error) in
+                    if let error = error{
+                        print("error..\(error.localizedDescription)")
+                        return
+                    }
+                    
+                    for item in result.items{
+                        print("item: \(item.fullPath)")
+//                        self.tempArray.append(item.fullPath)
+//                        self.items = self.tempArray
+//                        print("this count...\(self.items.count).....\(self.tempArray.count)")
+//                        self.collectionView.reloadData()
+                    }
+                }
+            }
+            
+        }
     }
     
     
@@ -142,7 +169,6 @@ class CustomerHomeVC: UIViewController , UICollectionViewDelegate , UICollection
       func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
           
           let selectedItemName = items[indexPath.row]
-          
           let destVC = storyboard?.instantiateViewController(identifier: "objectDescVC") as! ObjectDescVC
 
             destVC.imageName = selectedItemName
@@ -155,10 +181,7 @@ class CustomerHomeVC: UIViewController , UICollectionViewDelegate , UICollection
       // MARK: Saved Images screen
       @IBAction func savedImgPressed(_ sender: UIButton) {
       let destVC = storyboard?.instantiateViewController(identifier: "savedImagesVC") as! SavedImagesVC
-        
           navigationController?.pushViewController(destVC, animated: true)
-        
-      
       }
       
     @IBAction func logoutPressed(_ sender: UIButton) {
