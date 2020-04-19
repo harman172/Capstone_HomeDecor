@@ -19,6 +19,7 @@
 		B5011CED24469B09004456C0 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5011CEC24469B09004456C0 /* SideMenuTableViewController.swift */; };
 		B5011CEF24469DD6004456C0 /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5011CEE24469DD6004456C0 /* SlideInTransition.swift */; };
 		B5011CF12446A196004456C0 /* AddNewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5011CF02446A196004456C0 /* AddNewItemViewController.swift */; };
+		B5201124244CCB7200DBC430 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5201123244CCB7200DBC430 /* Constants.swift */; };
 		B52E244024423C5200E7D19B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E243F24423C5200E7D19B /* AppDelegate.swift */; };
 		B52E244424423C5200E7D19B /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = B52E244324423C5200E7D19B /* Experience.rcproject */; };
 		B52E244724423C5200E7D19B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B52E244524423C5200E7D19B /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 		B5011CEC24469B09004456C0 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		B5011CEE24469DD6004456C0 /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		B5011CF02446A196004456C0 /* AddNewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewItemViewController.swift; sourceTree = "<group>"; };
+		B5201123244CCB7200DBC430 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B52E243C24423C5200E7D19B /* Capstone_HomeDecor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capstone_HomeDecor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B52E243F24423C5200E7D19B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B52E244324423C5200E7D19B /* Experience.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Experience.rcproject; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				B52E244D24423C5500E7D19B /* Info.plist */,
 				B52E24532442406800E7D19B /* GoogleService-Info.plist */,
 				44C164772442C51300D76E2D /* art.scnassets */,
+				B5201123244CCB7200DBC430 /* Constants.swift */,
 			);
 			path = Capstone_HomeDecor;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				B5011CEF24469DD6004456C0 /* SlideInTransition.swift in Sources */,
 				B5011CF12446A196004456C0 /* AddNewItemViewController.swift in Sources */,
 				B52E244424423C5200E7D19B /* Experience.rcproject in Sources */,
+				B5201124244CCB7200DBC430 /* Constants.swift in Sources */,
 				B52E245724427CA700E7D19B /* BusinessHomeVC.swift in Sources */,
 				44C164722442C48A00D76E2D /* ObjectDescVC.swift in Sources */,
 				F22E8BE7244249EE008915FE /* LoginRegisterVC.swift in Sources */,

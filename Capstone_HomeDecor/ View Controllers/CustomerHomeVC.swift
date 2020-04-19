@@ -8,15 +8,24 @@
 
 import UIKit
 import FirebaseAuth
+import Firebase
+import FirebaseFirestoreSwift
+import FirebaseStorage
+import Kingfisher
 
-class CustomerHomeVC:UIViewController , UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
+class CustomerHomeVC: UIViewController , UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
   
     @IBOutlet weak var savedImgBtn: UIButton!
     static var username:String?
     static var multipleObjMode = false
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    var documentIDs = [String]()
+    
     @IBOutlet weak var wishBtn: UIButton!
-    let items:[String] = ["table" , "chair" , "couch"]
+//    let items:[String] = ["table" , "chair" , "couch"]
+    var items = [String]()
+    var tempArray = [String]()
     var tryBtnPressed: Bool?
     var del_ARVC: ArVC?
    
@@ -26,12 +35,59 @@ class CustomerHomeVC:UIViewController , UICollectionViewDelegate , UICollectionV
         super.viewDidLoad()
         wishBtn.layer.cornerRadius = 10
         savedImgBtn.layer.cornerRadius = 10
-      
+        loadImages()
+//        print("count...\(Constants.items.count)")
+        
+        
+    }
+    
+    func loadImages(){
+        let db = Firestore.firestore()
+        // get all business account's ids
+        db.collection("business").getDocuments { (snapshot, err) in
+            if let err = err{
+                print("something is wrong here. \(err.localizedDescription)")
+                return
+            }
+            
+            for document in snapshot!.documents {
+                print("------------------------------")
+                print("document id: \(document.documentID)")
+                let storageRef = Storage.storage().reference()
+                    .child("Uploaded Images")
+                    .child(document.documentID)
+                storageRef.listAll { (result, error) in
+                    if let error = error{
+                        print("error..\(error.localizedDescription)")
+                        return
+                    }
+                    
+                    for item in result.items{
+                        print("item: \(item.fullPath)")
+                        self.tempArray.append(item.fullPath)
+                        self.items = self.tempArray
+                        print("this count...\(self.items.count).....\(self.tempArray.count)")
+                        self.collectionView.reloadData()
+                        
+                        
+                    }
+                }
+            }
+        }
+        
+//        //fetch images
+//        for item in items{
+//            let imagePath = Storage.storage().reference().child(item)
+//            imagePath.downloadURL { (url, error) in
+//
+//            }
+//        }
+        
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
-        
+//        loadImages()
        // navigationItem.setHidesBackButton(true, animated: animated)
         if(CustomerHomeVC.multipleObjMode && tryBtnPressed!){
             
@@ -42,16 +98,38 @@ class CustomerHomeVC:UIViewController , UICollectionViewDelegate , UICollectionV
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-          return items.count
-         }
+        print("changed count...\(items.count)")
+      return items.count
+     }
          
-         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomerHomeViewCell
-
-          cell.ImageViewCell.image = UIImage(named: items[indexPath.row])
-
-       return cell
-         }
+     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomerHomeViewCell
+        
+        //fetch images
+        let imagePath = Storage.storage().reference().child(items[indexPath.row])
+        imagePath.downloadURL { (url, error) in
+            if let error = error{
+                print("error fetching url \(error.localizedDescription)")
+                return
+            }
+            
+            guard let url = url else{
+                return
+            }
+            let resource = ImageResource(downloadURL: url)
+            cell.ImageViewCell.kf.setImage(with: resource) { (result) in
+                switch result{
+                case .success(_):
+                    print("Success downloading image")
+                    
+                case .failure(let err):
+                    print("switch error...\(err.localizedDescription)")
+                }
+            }
+        }
+//        cell.ImageViewCell.image = UIImage(named: items[indexPath.row])
+        return cell
+     }
        // MARK: For cell size WRT screen size
       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 

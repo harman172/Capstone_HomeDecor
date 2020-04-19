@@ -479,6 +479,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="collectionView" destination="Dus-ze-idC" id="hTr-H3-wQY"/>
                         <outlet property="savedImgBtn" destination="cSi-KT-2Me" id="KuE-g5-TW0"/>
                         <outlet property="wishBtn" destination="5OB-1u-yek" id="RRx-a7-sUn"/>
                     </connections>

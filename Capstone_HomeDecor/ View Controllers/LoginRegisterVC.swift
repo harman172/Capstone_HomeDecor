@@ -100,14 +100,15 @@ class LoginRegisterVC: UIViewController {
                         let username = self.emailTF.text!.components(separatedBy: "@")
                         CustomerHomeVC.username = username[0]
                         let db = Firestore.firestore()
-                        let docReference = db.collection("users").document(result!.user.uid)
-                        docReference.getDocument { (document, error) in
+                        
+                        let businessAccount = db.collection("business").document(result!.user.uid)
+                        
+                        businessAccount.getDocument { (document, error) in
                             if let document = document, document.exists{
                                 let dataDescription = document.data().map(String.init(describing: )) ?? "nil"
-                                print("___________________")
-                                let accountType = document.data()!["account type"] as! String
-                                print(accountType)
-                                self.transitionToHomeScreen(accountType)
+                                print("_________business__________")
+//                                let accountType = document.data()!["account type"] as! String
+                                self.transitionToHomeScreen("business")
 //                                if (document.data()!["account type"] == "business"){
 //
 //                                }
@@ -115,8 +116,19 @@ class LoginRegisterVC: UIViewController {
 //                                    if (
 //                                }
                             } else{
-                                print("__________________")
                                 print("document does not exist")
+                                
+                                let customerAccount = db.collection("customer").document(result!.user.uid)
+                                customerAccount.getDocument { (document, error) in
+                                    if let document = document, document.exists{
+                                        self.transitionToHomeScreen("customer")
+                                        print("________customer___________")
+                                    } else{
+                                        print("document does not exist")
+                                        self.errorLabel.isHidden = false
+                                        self.errorLabel.text = "No such account exists! Please create one"
+                                    }
+                                }
                             }
                         }
                     }
@@ -142,7 +154,7 @@ class LoginRegisterVC: UIViewController {
                         
                         //store in database
                         let db = Firestore.firestore()
-                        db.collection("users").document(result!.user.uid).setData(["name":name, "phone":phone, "password":password, "account type":accountType]) { (error) in
+                        db.collection(accountType).document(result!.user.uid).setData(["name":name, "phone":phone, "password":password]) { (error) in
                             if error != nil{
                                 print("Error writing document")
                             } else{
@@ -192,13 +204,13 @@ class LoginRegisterVC: UIViewController {
             homeViewController = storyboard?.instantiateViewController(identifier: "ContainerVC") as? ContainerViewController
         } else{
             homeViewController = storyboard?.instantiateViewController(identifier: "CustomerVC") as? CustomerHomeVC
-        
         }
          navigationController?.pushViewController(homeViewController!, animated: true)
 //        view.window?.rootViewController = homeViewController
 //        view.window?.makeKeyAndVisible()
     }
  
+    
     
 }
 
