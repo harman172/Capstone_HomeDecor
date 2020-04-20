@@ -30,10 +30,10 @@ class AddNewItemViewController: UIViewController {
     var fileName = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        fileName = UUID().uuidString
+        
 
         // Do any additional setup after loading the view.
-        
+        print("view did load")
         
     }
     
@@ -42,7 +42,8 @@ class AddNewItemViewController: UIViewController {
         if let imgD = imgDoc{
             setImage(doc: imgD)
         }
-        
+        fileName = Constants.FILENAME
+        print("will appear")
         
     }
     func setImage(doc : UIDocument){

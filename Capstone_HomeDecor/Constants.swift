@@ -10,4 +10,5 @@ import UIKit
 
 class Constants {
     static var items = [String]()
+    static var FILENAME = ""
 }
