@@ -36,8 +36,8 @@ class CustomerHomeVC: UIViewController , UICollectionViewDelegate , UICollection
         super.viewDidLoad()
         wishBtn.layer.cornerRadius = 10
         savedImgBtn.layer.cornerRadius = 10
-//        loadImages()
-//        loadFiles()
+        loadImages()
+        loadFiles()
 //        print("count...\(Constants.items.count)")
         
         

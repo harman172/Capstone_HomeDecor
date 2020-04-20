@@ -27,8 +27,10 @@ class AddNewItemViewController: UIViewController {
     
     @IBOutlet weak var objDescription: UITextView!
     
+    var fileName = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        fileName = UUID().uuidString
 
         // Do any additional setup after loading the view.
         
@@ -48,7 +50,7 @@ class AddNewItemViewController: UIViewController {
     }
 
     @IBAction func btnUploadTapped(_ sender: UIButton) {
-//        uploadImageToFirebaseStorage()
+        uploadImageToFirebaseStorage()
         print(objDoc!.presentedItemURL)
         uploadFileToFirebaseStorage(u: objDoc!.presentedItemURL!)
     }
@@ -61,9 +63,9 @@ class AddNewItemViewController: UIViewController {
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
-        let imageName = UUID().uuidString
+        
         let imageReference = Storage.storage().reference()
-            .child("Uploaded Images").child(uid).child(imageName)
+            .child("Uploaded Images").child(uid).child(fileName)
         
         imageReference.putData(data, metadata: nil) { (metadata, error) in
             if let error = error{
@@ -81,7 +83,7 @@ class AddNewItemViewController: UIViewController {
             return
         }
         
-        let fileName = UUID().uuidString
+//        let fileName = UUID().uuidString
         let fileReference = Storage.storage().reference()
             .child("Uploaded Files").child(uid).child(fileName)
         
@@ -91,6 +93,7 @@ class AddNewItemViewController: UIViewController {
                 return
             }
             
+            /*
             fileReference.downloadURL { (url, err) in
                 if let error = error{
                     print("error....\(error.localizedDescription)")
@@ -119,6 +122,7 @@ class AddNewItemViewController: UIViewController {
                 }
             
             }
+ */
             print("Document uploaded successfully!!!")
             
         }
