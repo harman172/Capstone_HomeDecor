@@ -8,6 +8,7 @@
 
 import UIKit
 import ARKit
+import SceneKit
 import FirebaseAuth
 
 
@@ -19,6 +20,8 @@ class ArVC: UIViewController, UIPopoverPresentationControllerDelegate {
     @IBOutlet weak var leftBtn: UIButton!
     @IBOutlet weak var rightBtn: UIButton!
     
+    @IBOutlet weak var zUpBtn: UIButton!
+    @IBOutlet weak var zDownBtn: UIButton!
     @IBOutlet weak var scaleTF: UITextField!
     
     @IBOutlet weak var sceneView: ARSCNView!
@@ -27,7 +30,7 @@ class ArVC: UIViewController, UIPopoverPresentationControllerDelegate {
     
     var CurrentNode: SCNNode!
     var nodeToAdd : String!
-    
+    var objUrl:URL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,17 +48,25 @@ class ArVC: UIViewController, UIPopoverPresentationControllerDelegate {
         
         let gesture5 = UILongPressGestureRecognizer(target: self, action: #selector(onLongPress(gesture: )))
         
+        let gesture6 = UILongPressGestureRecognizer(target: self, action: #selector(onLongPress(gesture: )))
+        
+         let gesture7 = UILongPressGestureRecognizer(target: self, action: #selector(onLongPress(gesture: )))
+        
         gesture1.minimumPressDuration = 0.1
         gesture2.minimumPressDuration = 0.1
         gesture3.minimumPressDuration = 0.1
         gesture4.minimumPressDuration = 0.1
         gesture5.minimumPressDuration = 0.1
+        gesture6.minimumPressDuration = 0.1
+        gesture7.minimumPressDuration = 0.1
         
         rotateBtn.addGestureRecognizer(gesture1)
         upBtn.addGestureRecognizer(gesture2)
         downBtn.addGestureRecognizer(gesture3)
         leftBtn.addGestureRecognizer(gesture4)
         rightBtn.addGestureRecognizer(gesture5)
+        zUpBtn.addGestureRecognizer(gesture6)
+        zDownBtn.addGestureRecognizer(gesture7)
         
         
         
@@ -68,18 +79,45 @@ class ArVC: UIViewController, UIPopoverPresentationControllerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         CustomerHomeVC.multipleObjMode = false
-        addNewItem(nodeName: nodeToAdd)
+        print("view will appear called")
+        
+            addNewItem(nodeName: nodeToAdd)
+    
+        
+        
     }
     
     func addNewItem(nodeName: String){
-        let node = SCNScene(named: "art.scnassets/\(nodeName).scn")
+      //  let node = SCNScene(named: "art.scnassets/\(nodeName).scn")
+        do {
+            
+            let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL
+            
+            var file_name = 0
+        
+                                   
+                               
+                                                             
+            let furl = (directory?.appendingPathComponent("\(file_name).scn"))!
+            
+            
+            
+           let node = try SCNScene(url: furl, options: nil)
+            let name = node.rootNode.childNodes.last?.name
+             print(name!)
+             print(node.rootNode.childNodes.count)
+            
+            CurrentNode = node.rootNode.childNode(withName: "\(name!)", recursively: true)
+             CurrentNode?.position = SCNVector3(-0.5,-1,-2)
+             self.sceneView.scene.rootNode.addChildNode(CurrentNode!)
+        } catch  {
+            print(error.localizedDescription)
+        }
+        
         
 //        let a = SCNScene(url: <#T##URL#>, options: [SCNSceneSource.LoadingOption : Any]?)
         
-         
-         CurrentNode = node?.rootNode.childNode(withName: "\(nodeName)", recursively: true)
-         CurrentNode?.position = SCNVector3(-0.5,-1,-2)
-         self.sceneView.scene.rootNode.addChildNode(CurrentNode!)
+        
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
@@ -178,6 +216,16 @@ class ArVC: UIViewController, UIPopoverPresentationControllerDelegate {
                     let move = SCNAction.repeatForever(SCNAction.moveBy(x: 0.08, y: 0, z: 0, duration: 0.1))
                     ObjNodeEdit.runAction(move)
                 }
+                else if gesture.view === zUpBtn{
+                    let move = SCNAction.repeatForever(SCNAction.moveBy(x: 0, y: 0, z: -0.08, duration: 0.1))
+                    ObjNodeEdit.runAction(move)
+                }
+                else if gesture.view === zDownBtn{
+                    let move = SCNAction.repeatForever(SCNAction.moveBy(x: 0, y: 0, z: 0.08, duration: 0.1))
+                    ObjNodeEdit.runAction(move)
+                }
+                
+                
             }
         }
         
@@ -201,6 +249,27 @@ class ArVC: UIViewController, UIPopoverPresentationControllerDelegate {
         navigationController?.pushViewController(homeVC, animated: true)
         
     }
+    
+    
+    
+    @IBAction func uploadBtnPressed(_ sender: UIButton) {
+        
+        
+        let homeVC = storyboard?.instantiateViewController(identifier: "ObjVC") as! ObjectBrowserViewController
+               homeVC.Delegate_ArVC = self
+               
+               navigationController?.pushViewController(homeVC, animated: true)
+        
+    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let dest = segue.destination as? ObjectBrowserViewController2{
+//            
+//        }
+//    }
+    
+    
+    
     
 }
 

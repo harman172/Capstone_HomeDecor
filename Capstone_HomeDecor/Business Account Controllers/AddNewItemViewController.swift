@@ -52,7 +52,7 @@ class AddNewItemViewController: UIViewController {
     @IBAction func btnUploadTapped(_ sender: UIButton) {
         uploadImageToFirebaseStorage()
         print(objDoc!.presentedItemURL)
-        uploadFileToFirebaseStorage(u: objDoc!.presentedItemURL!)
+        uploadFileToFirebaseStorage(u: objDoc!.fileURL)
     }
     
     func uploadImageToFirebaseStorage(){

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rYM-Ae-5sW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rYM-Ae-5sW">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -661,6 +661,23 @@
                                     <action selector="addNewObj:" destination="RCk-Uk-7l0" eventType="touchUpInside" id="QeT-v8-N33"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="Ug2-qv-5Ju">
+                                <rect key="frame" x="332.5" y="290.5" width="32.5" height="86.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJU-6J-Xzm">
+                                        <rect key="frame" x="0.0" y="0.0" width="32.5" height="25.5"/>
+                                        <state key="normal" image="chevron.up" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00c-mJ-g6v">
+                                        <rect key="frame" x="0.0" y="62.5" width="32.5" height="24"/>
+                                        <state key="normal" image="chevron.down" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -682,7 +699,9 @@
                             <constraint firstItem="pPt-ed-FOI" firstAttribute="bottom" secondItem="JVo-Cj-Maj" secondAttribute="bottom" id="aEV-Yn-wyo"/>
                             <constraint firstItem="R30-2Y-8qb" firstAttribute="top" secondItem="pPt-ed-FOI" secondAttribute="top" constant="10" id="dbz-nB-kfw"/>
                             <constraint firstItem="pPt-ed-FOI" firstAttribute="trailing" secondItem="roC-yd-1LM" secondAttribute="trailing" constant="10" id="fwx-YX-Yxx"/>
+                            <constraint firstItem="Ug2-qv-5Ju" firstAttribute="centerY" secondItem="5dV-oy-rPN" secondAttribute="centerY" id="hwk-de-sdE"/>
                             <constraint firstItem="84F-wT-ODk" firstAttribute="leading" secondItem="ZFA-6f-QXE" secondAttribute="trailing" constant="10" id="i9i-gn-xfq"/>
+                            <constraint firstItem="pPt-ed-FOI" firstAttribute="trailing" secondItem="Ug2-qv-5Ju" secondAttribute="trailing" constant="10" id="jFh-z4-QSF"/>
                             <constraint firstItem="pPt-ed-FOI" firstAttribute="trailing" secondItem="JVo-Cj-Maj" secondAttribute="trailing" id="nAB-vE-GyC"/>
                             <constraint firstItem="urJ-n7-Ac5" firstAttribute="top" secondItem="84F-wT-ODk" secondAttribute="bottom" constant="10" id="si1-3C-hij"/>
                             <constraint firstItem="sz4-r7-1mo" firstAttribute="top" secondItem="pPt-ed-FOI" secondAttribute="top" constant="10" id="xFc-ld-TlQ"/>
@@ -697,6 +716,8 @@
                         <outlet property="scaleTF" destination="R30-2Y-8qb" id="LjW-rp-uii"/>
                         <outlet property="sceneView" destination="JVo-Cj-Maj" id="VRa-NC-Oxc"/>
                         <outlet property="upBtn" destination="84F-wT-ODk" id="9wc-4p-Yb7"/>
+                        <outlet property="zDownBtn" destination="00c-mJ-g6v" id="Gp6-GS-geR"/>
+                        <outlet property="zUpBtn" destination="wJU-6J-Xzm" id="mFk-FG-SUi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vwv-Pg-hha" sceneMemberID="firstResponder"/>
@@ -1067,7 +1088,7 @@
         <!--Object Browser View Controller-->
         <scene sceneID="kIj-3p-lkG">
             <objects>
-                <viewController id="cGU-9K-rCO" customClass="ObjectBrowserViewController" customModule="Capstone_HomeDecor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ObjVC" id="cGU-9K-rCO" customClass="ObjectBrowserViewController" customModule="Capstone_HomeDecor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rc2-So-rJy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1078,7 +1099,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rqm-eY-x7M" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4417" y="-242"/>
+            <point key="canvasLocation" x="4417" y="-247"/>
         </scene>
         <!--ImageBrowserViewController-->
         <scene sceneID="7aI-Us-DPr">
@@ -1098,19 +1119,21 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.left.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="camera.circle" catalog="system" width="64" height="60"/>
-        <image name="chevron.down.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="chevron.left.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="chevron.right.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="chevron.up.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="arrow.left.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="camera.circle" catalog="system" width="128" height="121"/>
+        <image name="chevron.down" catalog="system" width="128" height="72"/>
+        <image name="chevron.down.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="chevron.left.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="chevron.right.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="chevron.up" catalog="system" width="128" height="72"/>
+        <image name="chevron.up.circle.fill" catalog="system" width="128" height="121"/>
         <image name="couch" width="1920" height="1080"/>
-        <image name="hand.thumbsup" catalog="system" width="64" height="64"/>
+        <image name="hand.thumbsup" catalog="system" width="128" height="128"/>
         <image name="ic_home" width="90" height="90"/>
-        <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
-        <image name="plus.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="plus.rectangle.fill" catalog="system" width="64" height="46"/>
-        <image name="rotate.left.fill" catalog="system" width="64" height="64"/>
+        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="plus.rectangle.fill" catalog="system" width="128" height="93"/>
+        <image name="rotate.left.fill" catalog="system" width="128" height="128"/>
         <image name="table" width="800" height="450"/>
     </resources>
 </document>

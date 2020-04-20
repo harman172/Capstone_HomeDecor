@@ -99,13 +99,41 @@ class CustomerHomeVC: UIViewController , UICollectionViewDelegate , UICollection
                         return
                     }
                     
+                    let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL
+                    
+                 //let directory = NSURL(string: "file:///private/var/mobile/Containers/Shared/AppGroup/DDBC6361-EDB7-4E2E-822E-9AC0FD7C83B8/File%20Provider%20Storage/Capstone")
+                    
+    
+                    
+                    
+                    var file_name = 0
                     for item in result.items{
                         print("item: \(item.fullPath)")
+                        
+                    
+                                                  
+                        let furl = directory?.appendingPathComponent("\(file_name).scn")
+                        
+                        print(furl)
+                                               
+                                               
+                    print("total document received --- \(result.items.count)")
+                                               
+                    let downloadTask = result.items[file_name].write(toFile: furl!) { url, error in
+                        if let error = error {
+                            print("some error in downloading document....\(error.localizedDescription)")
+                                                 } else {
+                        print("!!! document successfully downloaded !!!")
+                            file_name += 1
+                            print(url)
+                                                    
 //                        self.tempArray.append(item.fullPath)
 //                        self.items = self.tempArray
 //                        print("this count...\(self.items.count).....\(self.tempArray.count)")
 //                        self.collectionView.reloadData()
                     }
+                        }
+                        }
                 }
             }
             

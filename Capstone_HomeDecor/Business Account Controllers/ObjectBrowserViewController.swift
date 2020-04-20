@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import ARKit
+import SceneKit
 
 
 class ObjectBrowserViewController: UIDocumentBrowserViewController, UIDocumentBrowserViewControllerDelegate {
     
     var Delegate_AddObj: AddNewItemViewController?
+    var Delegate_ArVC: ArVC?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,8 +54,53 @@ class ObjectBrowserViewController: UIDocumentBrowserViewController, UIDocumentBr
         // Present the Document View Controller for the first document that was picked.
         // If you support picking multiple items, make sure you handle them all.
         //presentDocument(at: sourceURL)
-        Delegate_AddObj?.objDoc = UIDocument(fileURL: sourceURL)
-        Delegate_AddObj?.objPathL.text = sourceURL.lastPathComponent
+        
+        if let d = Delegate_AddObj{
+            
+            print("inside add obj")
+            print(sourceURL)
+            Delegate_AddObj?.objDoc = UIDocument(fileURL: sourceURL)
+            Delegate_AddObj?.objPathL.text = sourceURL.lastPathComponent
+            
+            do {
+                let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL
+                     
+                                       let furl = directory?.appendingPathComponent("\(0).scn")
+                                       
+                                       print(furl)
+                                 let node = try SCNScene(url: furl! , options: nil)
+                                  print(node.rootNode.name)
+                                  let name = node.rootNode.childNodes.last?.name
+                                   print(name)
+                                   print(node.rootNode.childNodes.count)
+                                  
+                              } catch  {
+                                  print(error.localizedDescription)
+                              }
+        }
+        
+        if let d2 = Delegate_ArVC{
+            // to be deleted
+            print("inside ARVC")
+print(sourceURL)
+                   Delegate_ArVC?.objUrl = sourceURL
+                   do {
+                      let node = try SCNScene(url: sourceURL, options: nil)
+                       print(node.rootNode.name)
+                       let name = node.rootNode.childNodes.last?.name
+                        print(name)
+                        print(node.rootNode.childNodes.count)
+                       
+                   } catch  {
+                       print(error.localizedDescription)
+                   }
+        }
+        
+        
+        
+        //print(sourceURL)
+       
+        
         self.navigationController?.popViewController(animated: true)
     }
     
