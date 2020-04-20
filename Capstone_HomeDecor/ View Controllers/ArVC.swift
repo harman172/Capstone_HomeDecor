@@ -107,7 +107,7 @@ class ArVC: UIViewController, UIPopoverPresentationControllerDelegate {
              print(name!)
              print(node.rootNode.childNodes.count)
             
-            CurrentNode = node.rootNode.childNode(withName: "\(name!)", recursively: true)
+            CurrentNode = node.rootNode.childNode(withName: "tryObject", recursively: true)
              CurrentNode?.position = SCNVector3(-0.5,-1,-2)
              self.sceneView.scene.rootNode.addChildNode(CurrentNode!)
         } catch  {
