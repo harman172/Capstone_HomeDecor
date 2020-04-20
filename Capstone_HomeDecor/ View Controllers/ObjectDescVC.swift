@@ -37,7 +37,7 @@ class ObjectDescVC: UIViewController {
         if (!CustomerHomeVC.multipleObjMode){
             print("new VC created")
             let destVC = storyboard?.instantiateViewController(identifier: "arVC") as! ArVC
-            destVC.nodeToAdd = imageName
+            destVC.docToOpen = imageName
             navigationController?.pushViewController(destVC, animated: true)
             
             
@@ -46,7 +46,7 @@ class ObjectDescVC: UIViewController {
              print("old VC used")
             navigationController?.popViewController(animated: true)
             del_CustomerHomeVC?.tryBtnPressed = true
-            del_CustomerHomeVC?.del_ARVC?.nodeToAdd = imageName
+            del_CustomerHomeVC?.del_ARVC?.docToOpen = imageName
             
         }
         print(imageName!)

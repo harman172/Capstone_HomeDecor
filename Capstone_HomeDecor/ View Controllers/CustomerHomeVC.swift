@@ -105,10 +105,15 @@ class CustomerHomeVC: UIViewController , UICollectionViewDelegate , UICollection
                     
     
                     
-                    
-                    var file_name = 0
                     for item in result.items{
+                        
                         print("item: \(item.fullPath)")
+                       
+                               
+                        let substring = item.fullPath.split(separator: "/")
+                               
+                        let file_name = String(substring.last!)
+                        print(file_name)
                         
                     
                                                   
@@ -119,12 +124,12 @@ class CustomerHomeVC: UIViewController , UICollectionViewDelegate , UICollection
                                                
                     print("total document received --- \(result.items.count)")
                                                
-                    let downloadTask = result.items[file_name].write(toFile: furl!) { url, error in
+                    let downloadTask = item.write(toFile: furl!) { url, error in
                         if let error = error {
                             print("some error in downloading document....\(error.localizedDescription)")
                                                  } else {
                         print("!!! document successfully downloaded !!!")
-                            file_name += 1
+                            
                             print(url)
                                                     
 //                        self.tempArray.append(item.fullPath)
@@ -197,9 +202,18 @@ class CustomerHomeVC: UIViewController , UICollectionViewDelegate , UICollection
       func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
           
           let selectedItemName = items[indexPath.row]
+        print("array...\(items[indexPath.row])")
+        
+         let docName = items[indexPath.row]
+        
+        let substring = docName.split(separator: "/")
+        
+        let doc = substring.last!
+        print(doc)
+        
           let destVC = storyboard?.instantiateViewController(identifier: "objectDescVC") as! ObjectDescVC
 
-            destVC.imageName = selectedItemName
+            destVC.imageName = String(doc)
             destVC.del_CustomerHomeVC = self
 
           navigationController?.pushViewController(destVC, animated: true)

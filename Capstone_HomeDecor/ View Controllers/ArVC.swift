@@ -29,7 +29,7 @@ class ArVC: UIViewController, UIPopoverPresentationControllerDelegate {
     
     
     var CurrentNode: SCNNode!
-    var nodeToAdd : String!
+    var docToOpen : String!
     var objUrl:URL?
     
     override func viewDidLoad() {
@@ -81,24 +81,24 @@ class ArVC: UIViewController, UIPopoverPresentationControllerDelegate {
         CustomerHomeVC.multipleObjMode = false
         print("view will appear called")
         
-            addNewItem(nodeName: nodeToAdd)
+            addNewItem(docName: docToOpen)
     
         
         
     }
     
-    func addNewItem(nodeName: String){
+    func addNewItem(docName: String){
       //  let node = SCNScene(named: "art.scnassets/\(nodeName).scn")
         do {
             
             let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL
             
-            var file_name = 0
+            
         
                                    
                                
                                                              
-            let furl = (directory?.appendingPathComponent("\(file_name).scn"))!
+            let furl = (directory?.appendingPathComponent("\(docName).scn"))!
             
             
             
