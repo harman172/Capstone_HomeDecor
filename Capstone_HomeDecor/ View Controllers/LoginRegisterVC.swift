@@ -29,6 +29,12 @@ class LoginRegisterVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        if let _ = UserDefaults.standard.string(forKey: "uid") {
+            if let accountType = UserDefaults.standard.string(forKey: "accountType"){
+            transitionToHomeScreen(accountType)
+            }
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -108,19 +114,21 @@ class LoginRegisterVC: UIViewController {
                                 let dataDescription = document.data().map(String.init(describing: )) ?? "nil"
                                 print("_________business__________")
 //                                let accountType = document.data()!["account type"] as! String
+                                UserDefaults.standard.setValue(result!.user.uid, forKey: "uid")
+                                UserDefaults.standard.setValue("business", forKey: "accountType")
+                                Constants.ID = UserDefaults.standard.string(forKey: "uid")!
+                                Constants.ACCOUNT_TYPE = UserDefaults.standard.string(forKey: "accountType")!
                                 self.transitionToHomeScreen("business")
-//                                if (document.data()!["account type"] == "business"){
-//
-//                                }
-//                                for (key, value) in document.data()!{
-//                                    if (
-//                                }
                             } else{
                                 print("document does not exist")
                                 
                                 let customerAccount = db.collection("customer").document(result!.user.uid)
                                 customerAccount.getDocument { (document, error) in
                                     if let document = document, document.exists{
+                                        UserDefaults.standard.setValue(result!.user.uid, forKey: "uid")
+                                        UserDefaults.standard.setValue("customer", forKey: "accountType")
+                                        Constants.ID = UserDefaults.standard.string(forKey: "uid")!
+                                        Constants.ACCOUNT_TYPE = UserDefaults.standard.string(forKey: "accountType")!
                                         self.transitionToHomeScreen("customer")
                                         print("________customer___________")
                                     } else{
@@ -158,38 +166,13 @@ class LoginRegisterVC: UIViewController {
                             if error != nil{
                                 print("Error writing document")
                             } else{
+                                UserDefaults.standard.setValue(result!.user.uid, forKey: "uid")
+                                UserDefaults.standard.setValue(accountType, forKey: "accountType")
+                                Constants.ID = UserDefaults.standard.string(forKey: "uid")!
+                                Constants.ACCOUNT_TYPE = UserDefaults.standard.string(forKey: "accountType")!
                                 self.transitionToHomeScreen(accountType)
                             }
-//                            if error == nil{
-//                              var homeViewController : UIViewController?
-//                              if accountType == "business"{
-//                                  homeViewController = self.storyboard?.instantiateViewController(identifier: "BusinessVC") as? BusinessHomeVC
-//                              } else{
-//                                  homeViewController = self.storyboard?.instantiateViewController(identifier: "CustomerVC") as? CustomerHomeVC
-//                              }
-//                              self.view.window?.rootViewController = homeViewController
-//                              self.view.window?.makeKeyAndVisible()
-//                          } else{
-//                                print("********************")
-//                                print(error!.localizedDescription)
-//                          }
                         }
-                        /*
-                        db.collection("users").addDocument(data: ["name":name, "phone":phone, "password":password, "uid":result!.user.uid, "account type":accountType]) { (error) in
-                            if error == nil{
-                                var homeViewController : UIViewController?
-                                if accountType == "business"{
-                                    homeViewController = self.storyboard?.instantiateViewController(identifier: "BusinessVC") as? BusinessHomeVC
-                                } else{
-                                    homeViewController = self.storyboard?.instantiateViewController(identifier: "CustomerVC") as? CustomerHomeVC
-                                }
-                                self.view.window?.rootViewController = homeViewController
-                                self.view.window?.makeKeyAndVisible()
-                            } else{
-                                print(error!.localizedDescription)
-                            }
-                        }
-                        */
                         
                     }
                 }

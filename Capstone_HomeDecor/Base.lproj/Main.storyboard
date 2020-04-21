@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rYM-Ae-5sW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rYM-Ae-5sW">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -969,9 +969,9 @@
                     </view>
                     <connections>
                         <outlet property="imageV" destination="673-qa-lii" id="7Sy-ac-EQT"/>
-                        <outlet property="objDescription" destination="0G5-FL-xqD" id="pQL-8F-yrz"/>
                         <outlet property="objPathL" destination="GFg-AD-zur" id="PwY-cI-7VR"/>
-                        <outlet property="titleL" destination="kF9-4h-dGh" id="mMp-xh-mco"/>
+                        <outlet property="txtDescription" destination="0G5-FL-xqD" id="WPl-Qj-KqJ"/>
+                        <outlet property="txtTitle" destination="kF9-4h-dGh" id="UDZ-Cz-E1i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kil-IK-ckI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1119,21 +1119,21 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.left.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="camera.circle" catalog="system" width="128" height="121"/>
-        <image name="chevron.down" catalog="system" width="128" height="72"/>
-        <image name="chevron.down.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="chevron.left.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="chevron.right.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="chevron.up" catalog="system" width="128" height="72"/>
-        <image name="chevron.up.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="arrow.left.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="camera.circle" catalog="system" width="64" height="60"/>
+        <image name="chevron.down" catalog="system" width="64" height="36"/>
+        <image name="chevron.down.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="chevron.left.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="chevron.right.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="chevron.up" catalog="system" width="64" height="36"/>
+        <image name="chevron.up.circle.fill" catalog="system" width="64" height="60"/>
         <image name="couch" width="1920" height="1080"/>
-        <image name="hand.thumbsup" catalog="system" width="128" height="128"/>
+        <image name="hand.thumbsup" catalog="system" width="64" height="64"/>
         <image name="ic_home" width="90" height="90"/>
-        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
-        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="plus.rectangle.fill" catalog="system" width="128" height="93"/>
-        <image name="rotate.left.fill" catalog="system" width="128" height="128"/>
+        <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
+        <image name="plus.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="plus.rectangle.fill" catalog="system" width="64" height="46"/>
+        <image name="rotate.left.fill" catalog="system" width="64" height="64"/>
         <image name="table" width="800" height="450"/>
     </resources>
 </document>

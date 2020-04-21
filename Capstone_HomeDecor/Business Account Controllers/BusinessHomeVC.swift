@@ -9,31 +9,39 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import FirebaseStorage
+import Kingfisher
 
 class BusinessHomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    let items:[String] = ["table" , "chair" , "couch"]
+//    let items:[String] = ["table" , "chair" , "couch"]
+    var items = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
-//        let nib = UINib(nibName: "BusinessGridViewCell", bundle: nil)
-//        collectionView.register(nib, forCellWithReuseIdentifier: "gridCell")
-        let user = Auth.auth().currentUser
-        
-        if user != nil{
-            print("User signed in")
-        } else{
-            print("User don't exist")
-        }
-        if let u = user{
-            print("Email id : \(u.email ?? "default email")")
-        }
         
     }
+    
+    func loadImages(){
+        items = [String]()
+           let storageRef = Storage.storage().reference().child("Uploaded Images").child(Constants.ID)
+           storageRef.listAll { (result, error) in
+               if let error = error{
+                   print("error..\(error.localizedDescription)")
+                   return
+               }
+               
+               for item in result.items{
+                   print("item: \(item.fullPath)")
+                   self.items.append(item.fullPath)
+//                   self.items = self.tempArray
+//                   print("this count...\(self.items.count).....\(self.tempArray.count)")
+                   self.collectionView.reloadData()
+               }
+           }
+       }
+        
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
@@ -41,9 +49,46 @@ class BusinessHomeVC: UIViewController, UICollectionViewDelegate, UICollectionVi
       
       func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "gridCell", for: indexPath) as! BusinessCollectionViewCell
-//        cell.setData(image: items[indexPath.row], title: items[indexPath.row])
-        cell.cellImageView.image = UIImage(named: items[indexPath.row])
-        cell.cellTitle.text = items[indexPath.row]
+        
+        let substring = String(items[indexPath.row].split(separator: "/").last!)
+        let db = Firestore.firestore()
+        let collection = db.collection("uploaded data").document(substring)
+        collection.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                print("\(dataDescription)")
+                let title = document.data()!["title"] as! String
+                cell.cellTitle.text = title
+            } else {
+                print("Document does not exist")
+            }
+        }
+        
+        
+        
+        //fetch images
+        let imagePath = Storage.storage().reference().child(items[indexPath.row])
+        imagePath.downloadURL { (url, error) in
+            if let error = error{
+                print("error fetching url \(error.localizedDescription)")
+                return
+            }
+            
+            guard let url = url else{
+                return
+            }
+            let resource = ImageResource(downloadURL: url)
+            cell.cellImageView.kf.setImage(with: resource) { (result) in
+                switch result{
+                case .success(_):
+                    print("Success downloading image")
+                    
+                case .failure(let err):
+                    print("switch error...\(err.localizedDescription)")
+                }
+            }
+        }
+        
         return cell
       }
       

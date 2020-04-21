@@ -230,7 +230,8 @@ class CustomerHomeVC: UIViewController , UICollectionViewDelegate , UICollection
         
         do {
             try Auth.auth().signOut()
-           
+           let domain = Bundle.main.bundleIdentifier!
+           UserDefaults.standard.removePersistentDomain(forName: domain)
             let destVC = storyboard?.instantiateViewController(withIdentifier: "loginRegisterVC") as! LoginRegisterVC
             navigationController?.pushViewController(destVC, animated: true)
             

@@ -11,6 +11,7 @@ import FirebaseAuth
 import FirebaseStorage
 import Kingfisher
 import FirebaseFirestore
+import Firebase
 
 
 class AddNewItemViewController: UIViewController {
@@ -20,12 +21,10 @@ class AddNewItemViewController: UIViewController {
     
     
     @IBOutlet weak var objPathL: UILabel!
-    
-    @IBOutlet weak var titleL: UITextField!
-    
     @IBOutlet weak var imageV: UIImageView!
     
-    @IBOutlet weak var objDescription: UITextView!
+    @IBOutlet weak var txtDescription: UITextView!
+    @IBOutlet weak var txtTitle: UITextField!
     
     var fileName = ""
     override func viewDidLoad() {
@@ -38,8 +37,7 @@ class AddNewItemViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        if let imgD = imgDoc{
+         if let imgD = imgDoc{
             setImage(doc: imgD)
         }
         fileName = Constants.FILENAME
@@ -49,11 +47,46 @@ class AddNewItemViewController: UIViewController {
     func setImage(doc : UIDocument){
             self.imageV.image = UIImage(contentsOfFile: (doc.presentedItemURL!.path))
     }
+    
+    func validations() -> Bool{
+        if (txtTitle.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+        txtDescription.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""){
+            return false
+        }
+        return true
+    }
+    
+    func showAlert(message: String){
+        let alertController = UIAlertController(title: "Alert!", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true)
+    }
+    
 
     @IBAction func btnUploadTapped(_ sender: UIButton) {
+        
+        guard validations() else {
+            showAlert(message: "All fields are required!")
+            return
+        }
+        
         uploadImageToFirebaseStorage()
         print(objDoc!.presentedItemURL)
         uploadFileToFirebaseStorage(u: objDoc!.fileURL)
+        
+        let title = txtTitle.text!
+        let description = txtDescription.text!
+        
+        let db = Firestore.firestore()
+        db.collection("uploaded data").document(fileName).setData(["title" : title, "description" : description]) { (error) in
+            if error != nil{
+                print("Error writing document")
+            }
+            self.showAlert(message: "Item uploaded successfully!!")
+        }
+        
+        
     }
     
     func uploadImageToFirebaseStorage(){
@@ -94,36 +127,6 @@ class AddNewItemViewController: UIViewController {
                 return
             }
             
-            /*
-            fileReference.downloadURL { (url, err) in
-                if let error = error{
-                    print("error....\(error.localizedDescription)")
-                    return
-                }
-                
-                guard let url = url else{
-                    print("Error...Something went wrong")
-                    return
-                }
-                let urlString = url.absoluteString
-                
-                //document id for data reference
-                let dataReference = Firestore.firestore().collection("business").document(uid)
-                
-                let data = [
-                    "doc": urlString
-                ]
-                
-                dataReference.setData(data, merge: true) { (err) in
-                    if let err = err{
-                        print("error data....\(err.localizedDescription)")
-                        return
-                    }
-                    print("Success storing document")
-                }
-            
-            }
- */
             print("Document uploaded successfully!!!")
             
         }

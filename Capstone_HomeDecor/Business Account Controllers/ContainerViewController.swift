@@ -59,6 +59,7 @@ class ContainerViewController: UIViewController {
         if title == "Home"{
             businessViewController.view.isHidden = false
             addNewViewController.view.isHidden = true
+            businessViewController.loadImages()
         } else if title == "Addnewobject"{
             businessViewController.view.isHidden = true
             addNewViewController.view.isHidden = false
@@ -66,6 +67,8 @@ class ContainerViewController: UIViewController {
             do {
                 try Auth.auth().signOut()
                 print("signed out")
+                let domain = Bundle.main.bundleIdentifier!
+                UserDefaults.standard.removePersistentDomain(forName: domain)
                 let vc = storyboard?.instantiateViewController(withIdentifier: "loginRegisterVC") as! LoginRegisterVC
                 navigationController?.pushViewController(vc, animated: true)
                 

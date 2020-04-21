@@ -11,4 +11,6 @@ import UIKit
 class Constants {
     static var items = [String]()
     static var FILENAME = ""
+    static var ID = "id"
+    static var ACCOUNT_TYPE = "account type"
 }
