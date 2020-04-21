@@ -32,7 +32,7 @@ class SlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
             dimmingView.alpha = 0.0
             containerView.addSubview(dimmingView)
             dimmingView.frame = containerView.bounds
-           
+            
             // add menuview controller to container
             containerView.addSubview(toViewController.view)
             
@@ -65,5 +65,5 @@ class SlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
         
     }
     
-
+    
 }

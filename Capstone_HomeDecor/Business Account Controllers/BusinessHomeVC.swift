@@ -13,9 +13,8 @@ import FirebaseStorage
 import Kingfisher
 
 class BusinessHomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
-//    let items:[String] = ["table" , "chair" , "couch"]
     var items = [String]()
     
     override func viewDidLoad() {
@@ -25,29 +24,27 @@ class BusinessHomeVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func loadImages(){
         items = [String]()
-           let storageRef = Storage.storage().reference().child("Uploaded Images").child(Constants.ID)
-           storageRef.listAll { (result, error) in
-               if let error = error{
-                   print("error..\(error.localizedDescription)")
-                   return
-               }
-               
-               for item in result.items{
-                   print("item: \(item.fullPath)")
-                   self.items.append(item.fullPath)
-//                   self.items = self.tempArray
-//                   print("this count...\(self.items.count).....\(self.tempArray.count)")
-                   self.collectionView.reloadData()
-               }
-           }
-       }
-        
+        let storageRef = Storage.storage().reference().child("Uploaded Images").child(Constants.ID)
+        storageRef.listAll { (result, error) in
+            if let error = error{
+                print("error..\(error.localizedDescription)")
+                return
+            }
+            
+            for item in result.items{
+                print("item: \(item.fullPath)")
+                self.items.append(item.fullPath)
+                self.collectionView.reloadData()
+            }
+        }
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
-      }
-      
-      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "gridCell", for: indexPath) as! BusinessCollectionViewCell
         
         let substring = String(items[indexPath.row].split(separator: "/").last!)
@@ -88,8 +85,8 @@ class BusinessHomeVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
         
         return cell
-      }
-      
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height = view.frame.size.height
         let width = view.frame.size.width
@@ -105,9 +102,4 @@ class BusinessHomeVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         destVC.del_Home = self
         navigationController?.pushViewController(destVC, animated: true)
     }
-
-    
-   
-    
-
 }

@@ -11,7 +11,7 @@ import Firebase
 import FirebaseFirestoreSwift
 
 class EditViewController: UIViewController {
-        
+    
     var id: String?
     var itemTitle:String?
     var itemDescription:String?
@@ -19,10 +19,9 @@ class EditViewController: UIViewController {
     @IBOutlet weak var txtTitle: UITextField!
     @IBOutlet weak var txtDescription: UITextView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         navigationItem.title = "Edit item"
         
@@ -49,7 +48,6 @@ class EditViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        print("called")
         txtDescription.resignFirstResponder()
     }
     
@@ -68,7 +66,7 @@ class EditViewController: UIViewController {
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
         //delete images from storage
         let imageRef = Storage.storage().reference().child("Uploaded Images").child(Constants.ID)
-        .child(id!)
+            .child(id!)
         imageRef.delete { (err) in
             if let err = err{
                 print("error while deleting\(err.localizedDescription)")
@@ -79,7 +77,7 @@ class EditViewController: UIViewController {
         
         //delete files from storage
         let filesRef = Storage.storage().reference().child("Uploaded Files").child(Constants.ID)
-        .child(id!)
+            .child(id!)
         filesRef.delete { (err) in
             if let err = err{
                 print("error while deleting\(err.localizedDescription)")
@@ -100,7 +98,7 @@ class EditViewController: UIViewController {
             
             
         }
-
+        
     }
     
     func showAlert(message: String){

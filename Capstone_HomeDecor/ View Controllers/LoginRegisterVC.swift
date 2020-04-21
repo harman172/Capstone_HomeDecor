@@ -12,7 +12,7 @@ import FirebaseAuth
 import FirebaseFirestoreSwift
 
 class LoginRegisterVC: UIViewController {
-
+    
     
     @IBOutlet weak var loginRegBtn: UIButton!
     @IBOutlet weak var toggleButton: UIButton!
@@ -30,9 +30,11 @@ class LoginRegisterVC: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        if let _ = UserDefaults.standard.string(forKey: "uid") {
+        if let uid = UserDefaults.standard.string(forKey: "uid") {
             if let accountType = UserDefaults.standard.string(forKey: "accountType"){
-            transitionToHomeScreen(accountType)
+                Constants.ID = uid
+                Constants.ACCOUNT_TYPE = accountType
+                transitionToHomeScreen(accountType)
             }
         }
     }
@@ -42,7 +44,7 @@ class LoginRegisterVC: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-
+    
     func validateFields() -> String?{
         if(loginRegBtn.titleLabel?.text == "Register"){
             if (nameTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
@@ -111,9 +113,6 @@ class LoginRegisterVC: UIViewController {
                         
                         businessAccount.getDocument { (document, error) in
                             if let document = document, document.exists{
-                                let dataDescription = document.data().map(String.init(describing: )) ?? "nil"
-                                print("_________business__________")
-//                                let accountType = document.data()!["account type"] as! String
                                 UserDefaults.standard.setValue(result!.user.uid, forKey: "uid")
                                 UserDefaults.standard.setValue("business", forKey: "accountType")
                                 Constants.ID = UserDefaults.standard.string(forKey: "uid")!
@@ -130,7 +129,6 @@ class LoginRegisterVC: UIViewController {
                                         Constants.ID = UserDefaults.standard.string(forKey: "uid")!
                                         Constants.ACCOUNT_TYPE = UserDefaults.standard.string(forKey: "accountType")!
                                         self.transitionToHomeScreen("customer")
-                                        print("________customer___________")
                                     } else{
                                         print("document does not exist")
                                         self.errorLabel.isHidden = false
@@ -188,11 +186,11 @@ class LoginRegisterVC: UIViewController {
         } else{
             homeViewController = storyboard?.instantiateViewController(identifier: "CustomerVC") as? CustomerHomeVC
         }
-         navigationController?.pushViewController(homeViewController!, animated: true)
-//        view.window?.rootViewController = homeViewController
-//        view.window?.makeKeyAndVisible()
+        navigationController?.pushViewController(homeViewController!, animated: true)
+        //        view.window?.rootViewController = homeViewController
+        //        view.window?.makeKeyAndVisible()
     }
- 
+    
     
     
 }

@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 
 class ContainerViewController: UIViewController {
-
+    
     let transition = SlideInTransition()
     @IBOutlet weak var navItem: UINavigationItem!
     
@@ -20,7 +20,7 @@ class ContainerViewController: UIViewController {
         self.addViewControllerAsChildViewController(childViewController: viewController)
         return viewController
     }()
-
+    
     lazy var addNewViewController: AddNewItemViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = storyboard.instantiateViewController(withIdentifier: "addObjectVC") as! AddNewItemViewController
@@ -32,11 +32,11 @@ class ContainerViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Home"
         transitionToNewContent(MenuType.home)
-
+        
         // Do any additional setup after loading the view.
     }
     
-
+    
     @IBAction func menuTapped(_ sender: UIBarButtonItem) {
         guard let menuViewController = storyboard?.instantiateViewController(withIdentifier: "menuTVC") as? SideMenuTableViewController else { return }
         
@@ -53,7 +53,7 @@ class ContainerViewController: UIViewController {
     
     func transitionToNewContent(_ menuType: MenuType){
         let title = String(describing: menuType).capitalized
-       
+        
         
         if title == "Home"{
             self.title = "Home"
@@ -66,22 +66,23 @@ class ContainerViewController: UIViewController {
             addNewViewController.view.isHidden = false
         } else if title == "Logout"{
             do {
-                try Auth.auth().signOut()
-                print("signed out")
                 let domain = Bundle.main.bundleIdentifier!
                 UserDefaults.standard.removePersistentDomain(forName: domain)
+                try Auth.auth().signOut()
+                print("signed out")
+                
                 let vc = storyboard?.instantiateViewController(withIdentifier: "loginRegisterVC") as! LoginRegisterVC
                 navigationController?.pushViewController(vc, animated: true)
                 
-                } catch let err {
-                    print(err)
+            } catch let err {
+                print(err)
             }
             
-//            try! Auth.auth().signOut()
-//            if let storyboard = self.storyboard {
-//                let vc = storyboard.instantiateViewController(withIdentifier: <#T##String#>) storyboard.instantiateViewControllerWithIdentifier("firstNavigationController") as! UINavigationController
-//                    self.presentViewController(vc, animated: false, completion: nil)
-//                }
+            //            try! Auth.auth().signOut()
+            //            if let storyboard = self.storyboard {
+            //                let vc = storyboard.instantiateViewController(withIdentifier: <#T##String#>) storyboard.instantiateViewControllerWithIdentifier("firstNavigationController") as! UINavigationController
+            //                    self.presentViewController(vc, animated: false, completion: nil)
+            //                }
         }
         
     }
@@ -95,7 +96,7 @@ class ContainerViewController: UIViewController {
         
         childViewController.didMove(toParent: self)
     }
-
+    
 }
 
 extension ContainerViewController: UIViewControllerTransitioningDelegate{
@@ -109,6 +110,6 @@ extension ContainerViewController: UIViewControllerTransitioningDelegate{
         return transition
     }
     
-   
+    
     
 }

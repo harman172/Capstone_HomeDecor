@@ -65,9 +65,9 @@ class ObjectBrowserViewController: UIDocumentBrowserViewController, UIDocumentBr
             do {
                 let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL
                      
-                                       let furl = directory?.appendingPathComponent("\(0).scn")
+                    let furl = directory?.appendingPathComponent("\(0).scn")
                                        
-                                       print(furl)
+                    print(furl)
                                  let node = try SCNScene(url: furl! , options: nil)
                                   print(node.rootNode.name)
                                   let name = node.rootNode.childNodes.last?.name
@@ -79,26 +79,7 @@ class ObjectBrowserViewController: UIDocumentBrowserViewController, UIDocumentBr
                               }
         }
         
-        if let d2 = Delegate_ArVC{
-            // to be deleted
-            print("inside ARVC")
-print(sourceURL)
-                   Delegate_ArVC?.objUrl = sourceURL
-                   do {
-                      let node = try SCNScene(url: sourceURL, options: nil)
-                       print(node.rootNode.name)
-                       let name = node.rootNode.childNodes.last?.name
-                        print(name)
-                        print(node.rootNode.childNodes.count)
-                       
-                   } catch  {
-                       print(error.localizedDescription)
-                   }
-        }
-        
-        
-        
-        //print(sourceURL)
+        print(sourceURL)
        
         
         self.navigationController?.popViewController(animated: true)

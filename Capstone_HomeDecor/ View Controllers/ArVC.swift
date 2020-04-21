@@ -34,7 +34,7 @@ class ArVC: UIViewController, UIPopoverPresentationControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        
         
         
         // tap gesture
@@ -50,7 +50,7 @@ class ArVC: UIViewController, UIPopoverPresentationControllerDelegate {
         
         let gesture6 = UILongPressGestureRecognizer(target: self, action: #selector(onLongPress(gesture: )))
         
-         let gesture7 = UILongPressGestureRecognizer(target: self, action: #selector(onLongPress(gesture: )))
+        let gesture7 = UILongPressGestureRecognizer(target: self, action: #selector(onLongPress(gesture: )))
         
         gesture1.minimumPressDuration = 0.1
         gesture2.minimumPressDuration = 0.1
@@ -72,50 +72,36 @@ class ArVC: UIViewController, UIPopoverPresentationControllerDelegate {
         
         self.sceneView.autoenablesDefaultLighting = true
         self.sceneView.session.run(configuration)
-//        self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
-       
-       
+        //        self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         CustomerHomeVC.multipleObjMode = false
         print("view will appear called")
         
-            addNewItem(docName: docToOpen)
-    
-        
-        
+        addNewItem(docName: docToOpen)
     }
     
     func addNewItem(docName: String){
-      //  let node = SCNScene(named: "art.scnassets/\(nodeName).scn")
+        //  let node = SCNScene(named: "art.scnassets/\(nodeName).scn")
         do {
             
             let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL
-            
-            
-        
-                                   
-                               
-                                                             
             let furl = (directory?.appendingPathComponent("\(docName).scn"))!
-            
-            
-            
-           let node = try SCNScene(url: furl, options: nil)
+            let node = try SCNScene(url: furl, options: nil)
             let name = node.rootNode.childNodes.last?.name
-             print(name!)
-             print(node.rootNode.childNodes.count)
+            print(name!)
+            print(node.rootNode.childNodes.count)
             
             CurrentNode = node.rootNode.childNode(withName: "tryObject", recursively: true)
-             CurrentNode?.position = SCNVector3(-0.5,-1,-2)
-             self.sceneView.scene.rootNode.addChildNode(CurrentNode!)
+            CurrentNode?.position = SCNVector3(-0.5,-1,-2)
+            self.sceneView.scene.rootNode.addChildNode(CurrentNode!)
         } catch  {
             print(error.localizedDescription)
         }
-        
-        
-//        let a = SCNScene(url: <#T##URL#>, options: [SCNSceneSource.LoadingOption : Any]?)
+        //        let a = SCNScene(url: <#T##URL#>, options: [SCNSceneSource.LoadingOption : Any]?)
         
         
     }
@@ -127,62 +113,47 @@ class ArVC: UIViewController, UIPopoverPresentationControllerDelegate {
     @IBAction func captureButtonPressed(_ sender: UIButton) {
         
         let capturedImage = self.sceneView.snapshot()
-       
-       let saved = saveImage(image: capturedImage)
-        
+        let saved = saveImage(image: capturedImage)
         if saved{
-           print("successful")
+            print("successful")
         }
         else{
             print("error")
         }
         
-    
+        
     }
-    
-
-    
     func saveImage(image: UIImage) -> Bool {
         guard let data =  image.pngData() else {
             return false
         }
         guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
             return false
-        
+            
         }
         let fileManager = FileManager.default
         
-    do {let newdir = directory.appendingPathComponent("\(CustomerHomeVC.username!)")
-    
-    do {
-        try fileManager.createDirectory(atPath: newdir!.path, withIntermediateDirectories: true, attributes: nil)
-    }   catch let error as NSError
-              {
-                  print("Unable to create directory \(error.debugDescription)")
-              }
-        
-        
-        
-        
-       // let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
-        
-        let dirContents = try? fileManager.contentsOfDirectory(atPath: newdir!.path)
-        let count = dirContents?.count
-        
-        print(count as Any)
-        
-        
-    
-       
-        
-        
+        do {
+            let newdir = directory.appendingPathComponent("\(CustomerHomeVC.username!)")
+            
+            do {
+                try fileManager.createDirectory(atPath: newdir!.path, withIntermediateDirectories: true, attributes: nil)
+            }   catch let error as NSError
+            {
+                print("Unable to create directory \(error.debugDescription)")
+            }
+            // let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+            
+            let dirContents = try? fileManager.contentsOfDirectory(atPath: newdir!.path)
+            let count = dirContents?.count
+            
+            print(count as Any)
+            
             let stringPath = newdir!.appendingPathComponent("\(count ?? 0).png")
             print(stringPath)
-                try  data.write(to: stringPath )
-                print("----actual path---")
-                print(stringPath)
-            
-            
+            try  data.write(to: stringPath )
+            print("----actual path---")
+            print(stringPath)
             return true
         } catch {
             print("--------ERROR----------")
@@ -224,15 +195,9 @@ class ArVC: UIViewController, UIPopoverPresentationControllerDelegate {
                     let move = SCNAction.repeatForever(SCNAction.moveBy(x: 0, y: 0, z: 0.08, duration: 0.1))
                     ObjNodeEdit.runAction(move)
                 }
-                
-                
             }
         }
-        
-        
     }
-    
-    
     
     @IBAction func scalePressed(_ sender: UIButton) {
         
@@ -250,26 +215,19 @@ class ArVC: UIViewController, UIPopoverPresentationControllerDelegate {
         
     }
     
-    
-    
     @IBAction func uploadBtnPressed(_ sender: UIButton) {
         
-        
         let homeVC = storyboard?.instantiateViewController(identifier: "ObjVC") as! ObjectBrowserViewController
-               homeVC.Delegate_ArVC = self
-               
-               navigationController?.pushViewController(homeVC, animated: true)
+        homeVC.Delegate_ArVC = self
+        navigationController?.pushViewController(homeVC, animated: true)
         
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let dest = segue.destination as? ObjectBrowserViewController2{
-//            
-//        }
-//    }
-    
-    
-    
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        if let dest = segue.destination as? ObjectBrowserViewController2{
+    //
+    //        }
+    //    }
     
 }
 

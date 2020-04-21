@@ -16,28 +16,19 @@ class ImageBrowserViewController: UIDocumentBrowserViewController, UIDocumentBro
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Do any additional setup after loading the view.
         delegate = self
-        
         allowsDocumentCreation = true
         allowsPickingMultipleItems = false
         
-        // Update the style of the UIDocumentBrowserViewController
-        // browserUserInterfaceStyle = .dark
-        // view.tintColor = .white
-        
-        // Specify the allowed content types of your application via the Info.plist.
-        
-        // Do any additional setup after loading the view.
     }
     
     
     // MARK: UIDocumentBrowserViewControllerDelegate
     
     func documentBrowser(_ controller: UIDocumentBrowserViewController, didRequestDocumentCreationWithHandler importHandler: @escaping (URL?, UIDocumentBrowserViewController.ImportMode) -> Void) {
-        let newDocumentURL: URL? = nil
         
-        // Set the URL for the new document here. Optionally, you can present a template chooser before calling the importHandler.
-        // Make sure the importHandler is always called, even if the user cancels the creation request.
+        let newDocumentURL: URL? = nil
         if newDocumentURL != nil {
             importHandler(newDocumentURL, .move)
         } else {
@@ -46,14 +37,15 @@ class ImageBrowserViewController: UIDocumentBrowserViewController, UIDocumentBro
     }
     
     func documentBrowser(_ controller: UIDocumentBrowserViewController, didPickDocumentsAt documentURLs: [URL]) {
-        guard let sourceURL = documentURLs.first else { return }
         
         // Present the Document View Controller for the first document that was picked.
         // If you support picking multiple items, make sure you handle them all.
         //presentDocument(at: sourceURL)
-       
+        guard let sourceURL = documentURLs.first else { return }
+        
+        
+        
         Delegate_AddObj?.imgDoc = UIDocument(fileURL: sourceURL)
-        //Delegate_AddObj?.imageV.image = UIImage(contentsOfFile: "\(sourceURL.path)")
         self.navigationController?.popViewController(animated: true)
     }
     

@@ -15,24 +15,21 @@ import Firebase
 
 
 class AddNewItemViewController: UIViewController, UITextViewDelegate {
-
-    var imgDoc: UIDocument?
-    var objDoc: UIDocument?
-    
     
     @IBOutlet weak var objPathL: UILabel!
     @IBOutlet weak var imageV: UIImageView!
-    
     @IBOutlet weak var txtDescription: UITextView!
     @IBOutlet weak var txtTitle: UITextField!
     
     var fileName = ""
+    var imgDoc: UIDocument?
+    var objDoc: UIDocument?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         txtDescription.delegate = self
-
+        
         // Do any additional setup after loading the view.
-        print("view did load")
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
@@ -53,29 +50,26 @@ class AddNewItemViewController: UIViewController, UITextViewDelegate {
         }
     }
     
-
     @objc func keyboardWillHide(notification: NSNotification) {
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
         }
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
-         if let imgD = imgDoc{
+        if let imgD = imgDoc{
             setImage(doc: imgD)
         }
         fileName = Constants.FILENAME
-        print("will appear")
-        
     }
+    
     func setImage(doc : UIDocument){
-            self.imageV.image = UIImage(contentsOfFile: (doc.presentedItemURL!.path))
+        self.imageV.image = UIImage(contentsOfFile: (doc.presentedItemURL!.path))
     }
     
     func validations() -> Bool{
         if (txtTitle.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-        txtDescription.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""){
+            txtDescription.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""){
             return false
         }
         return true
@@ -88,7 +82,7 @@ class AddNewItemViewController: UIViewController, UITextViewDelegate {
         present(alertController, animated: true)
     }
     
-
+    
     @IBAction func btnUploadTapped(_ sender: UIButton) {
         
         guard validations() else {
@@ -110,8 +104,6 @@ class AddNewItemViewController: UIViewController, UITextViewDelegate {
             }
             self.showAlert(message: "Item uploaded successfully!!")
         }
-        
-        
     }
     
     func uploadImageToFirebaseStorage(){
@@ -142,7 +134,7 @@ class AddNewItemViewController: UIViewController, UITextViewDelegate {
             return
         }
         
-//        let fileName = UUID().uuidString
+        //        let fileName = UUID().uuidString
         let fileReference = Storage.storage().reference()
             .child("Uploaded Files").child(uid).child(fileName)
         
@@ -159,7 +151,7 @@ class AddNewItemViewController: UIViewController, UITextViewDelegate {
     
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
@@ -175,9 +167,6 @@ class AddNewItemViewController: UIViewController, UITextViewDelegate {
             dest.Delegate_AddObj = self
             
         }
-        
-        
-        
     }
     
     
@@ -186,7 +175,7 @@ class AddNewItemViewController: UIViewController, UITextViewDelegate {
         
     }
     
- 
     
-
+    
+    
 }

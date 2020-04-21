@@ -13,7 +13,7 @@ import Kingfisher
 
 var imgArr = [String]()
 class ObjectDescVC: UIViewController {
-
+    
     @IBOutlet weak var ObjectImageView: UIImageView!
     @IBOutlet weak var descText: UITextView!
     
@@ -30,9 +30,8 @@ class ObjectDescVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         showData()
-//        ObjectImageView.image = UIImage(named: imageName!)
         
     }
     func showData(){
@@ -63,7 +62,7 @@ class ObjectDescVC: UIViewController {
         }
     }
     
-
+    
     @IBAction func tryButtonPressed(_ sender: UIButton) {
         
         if (!CustomerHomeVC.multipleObjMode){
@@ -72,30 +71,25 @@ class ObjectDescVC: UIViewController {
             destVC.docToOpen = docId
             navigationController?.pushViewController(destVC, animated: true)
             
-            
-            
-        }else{
-             print("old VC used")
+          }else{
+            print("old VC used")
             navigationController?.popViewController(animated: true)
             del_CustomerHomeVC?.tryBtnPressed = true
             del_CustomerHomeVC?.del_ARVC?.docToOpen = docId
             
         }
-        print(docId!)
         
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        
-        
-      let savedImage = saveImage(UIImage(named: docId!)!)
+        let savedImage = saveImage(UIImage(named: docId!)!)
         
         if savedImage {
             imgArr.append(docId!)
             alert(title: "Saved !", message: "Image Saved Successfully", buttonTitle: "OK")
         }
         else{
-           alert(title: "Warning !", message: "Error saving image", buttonTitle: "OK")
+            alert(title: "Warning !", message: "Error saving image", buttonTitle: "OK")
         }
         
     }
@@ -107,13 +101,13 @@ class ObjectDescVC: UIViewController {
             likeBtn.tintColor = #colorLiteral(red: 0, green: 0.5185523033, blue: 1, alpha: 1)
             liked = true
         }
-        
-       else if(liked){
+            
+        else if(liked){
             likeBtn.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
             likeBtn.tintColor = #colorLiteral(red: 0, green: 0.5185523033, blue: 1, alpha: 1)
             liked = false
         }
-    
+        
     }
     
     func saveImage( _ image: UIImage)-> Bool{
