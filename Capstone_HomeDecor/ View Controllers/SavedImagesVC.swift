@@ -67,7 +67,7 @@ class SavedImagesVC: UIViewController , UICollectionViewDataSource , UICollectio
         
         let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL
         
-        let newdir = directory!.appendingPathComponent("\(CustomerHomeVC.username!)")
+        let newdir = directory!.appendingPathComponent("\(Constants.ID)")
         let dirContents = try? fileManager.contentsOfDirectory(atPath: newdir!.path)
         let count = dirContents?.count
         return count ?? 0
@@ -79,7 +79,7 @@ class SavedImagesVC: UIViewController , UICollectionViewDataSource , UICollectio
             //            let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
             let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL
             let fileManager = FileManager.default
-            let newdir = directory!.appendingPathComponent("\(CustomerHomeVC.username!)")
+            let newdir = directory!.appendingPathComponent("\(Constants.ID)")
             let dirContents = try? fileManager.contentsOfDirectory(atPath: newdir!.path)
             let imageURL = URL(fileURLWithPath: newdir!.path).appendingPathComponent("\(dirContents![i])")
             

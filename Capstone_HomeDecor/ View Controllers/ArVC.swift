@@ -134,7 +134,7 @@ class ArVC: UIViewController, UIPopoverPresentationControllerDelegate {
         let fileManager = FileManager.default
         
         do {
-            let newdir = directory.appendingPathComponent("\(CustomerHomeVC.username!)")
+            let newdir = directory.appendingPathComponent("\(Constants.ID)")
             
             do {
                 try fileManager.createDirectory(atPath: newdir!.path, withIntermediateDirectories: true, attributes: nil)

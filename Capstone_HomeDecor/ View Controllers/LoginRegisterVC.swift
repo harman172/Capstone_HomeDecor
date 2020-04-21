@@ -105,8 +105,9 @@ class LoginRegisterVC: UIViewController {
                         self.errorLabel.isHidden = false
                         self.errorLabel.text = error!.localizedDescription
                     } else{
-                        let username = self.emailTF.text!.components(separatedBy: "@")
-                        CustomerHomeVC.username = username[0]
+//                        let username = result!.user.email!.components(separatedBy: "@")
+//                        CustomerHomeVC.username = username[0]
+                        
                         let db = Firestore.firestore()
                         
                         let businessAccount = db.collection("business").document(result!.user.uid)

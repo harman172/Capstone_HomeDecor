@@ -16,7 +16,7 @@ import Kingfisher
 class CustomerHomeVC: UIViewController , UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var savedImgBtn: UIButton!
-    static var username:String?
+   
     static var multipleObjMode = false
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -34,7 +34,7 @@ class CustomerHomeVC: UIViewController , UICollectionViewDelegate , UICollection
     override func viewDidLoad() {
         tryBtnPressed = false
         super.viewDidLoad()
-        wishBtn.layer.cornerRadius = 10
+        
         savedImgBtn.layer.cornerRadius = 10
         loadImages()
         loadFiles()
