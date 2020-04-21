@@ -20,6 +20,7 @@
 		B5011CEF24469DD6004456C0 /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5011CEE24469DD6004456C0 /* SlideInTransition.swift */; };
 		B5011CF12446A196004456C0 /* AddNewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5011CF02446A196004456C0 /* AddNewItemViewController.swift */; };
 		B5201124244CCB7200DBC430 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5201123244CCB7200DBC430 /* Constants.swift */; };
+		B52A35F3244EE583005C15FF /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A35F2244EE583005C15FF /* EditViewController.swift */; };
 		B52E244024423C5200E7D19B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E243F24423C5200E7D19B /* AppDelegate.swift */; };
 		B52E244424423C5200E7D19B /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = B52E244324423C5200E7D19B /* Experience.rcproject */; };
 		B52E244724423C5200E7D19B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B52E244524423C5200E7D19B /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		B5011CEE24469DD6004456C0 /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		B5011CF02446A196004456C0 /* AddNewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewItemViewController.swift; sourceTree = "<group>"; };
 		B5201123244CCB7200DBC430 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B52A35F2244EE583005C15FF /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		B52E243C24423C5200E7D19B /* Capstone_HomeDecor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capstone_HomeDecor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B52E243F24423C5200E7D19B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B52E244324423C5200E7D19B /* Experience.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Experience.rcproject; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				B5011CF02446A196004456C0 /* AddNewItemViewController.swift */,
 				F2C623CC2447C91500F76440 /* ObjectBrowserViewController.swift */,
 				B54B7B9824479ADC00C14313 /* BusinessCollectionViewCell.swift */,
+				B52A35F2244EE583005C15FF /* EditViewController.swift */,
 			);
 			path = "Business Account Controllers";
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				44C164722442C48A00D76E2D /* ObjectDescVC.swift in Sources */,
 				F22E8BE7244249EE008915FE /* LoginRegisterVC.swift in Sources */,
 				B5011CED24469B09004456C0 /* SideMenuTableViewController.swift in Sources */,
+				B52A35F3244EE583005C15FF /* EditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

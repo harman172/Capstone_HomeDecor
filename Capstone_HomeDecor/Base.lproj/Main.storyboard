@@ -364,7 +364,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lev-jW-e1o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2633" y="-640"/>
+            <point key="canvasLocation" x="2673" y="-638"/>
         </scene>
         <!--CustomerHomeVC-->
         <scene sceneID="x1V-2U-LlD">
@@ -851,6 +851,85 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MFd-Cf-OdW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1239.2" y="1204.9475262368817"/>
+        </scene>
+        <!--Edit View Controller-->
+        <scene sceneID="rps-NA-reT">
+            <objects>
+                <viewController storyboardIdentifier="editViewController" id="r9w-az-ege" customClass="EditViewController" customModule="Capstone_HomeDecor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CRB-lJ-s0z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qh3-Mu-WoX">
+                                <rect key="frame" x="20" y="607" width="335" height="40"/>
+                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Bch-Fj-oa3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteButtonPressed:" destination="r9w-az-ege" eventType="touchUpInside" id="riv-rj-mLV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbX-sT-azA">
+                                <rect key="frame" x="20" y="557" width="335" height="40"/>
+                                <color key="backgroundColor" red="0.2232522686" green="0.3695193235" blue="0.38020693370000003" alpha="0.66655072770000001" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="8Ex-WI-6S0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Update">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="editButtonPressed:" destination="r9w-az-ege" eventType="touchUpInside" id="Gtf-O8-em2"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XjH-pd-l2N">
+                                <rect key="frame" x="20" y="30" width="335" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="yTN-Lu-uIe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YRH-H9-spp">
+                                <rect key="frame" x="20" y="85" width="335" height="452"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="YRH-H9-spp" firstAttribute="top" secondItem="XjH-pd-l2N" secondAttribute="bottom" constant="15" id="1OU-pn-SPx"/>
+                            <constraint firstItem="qh3-Mu-WoX" firstAttribute="top" secondItem="xbX-sT-azA" secondAttribute="bottom" constant="10" id="CtN-wA-Mln"/>
+                            <constraint firstItem="XjH-pd-l2N" firstAttribute="top" secondItem="OIr-lS-Cup" secondAttribute="top" constant="30" id="H9c-Iy-AQc"/>
+                            <constraint firstItem="qh3-Mu-WoX" firstAttribute="leading" secondItem="OIr-lS-Cup" secondAttribute="leading" constant="20" id="KKR-jX-itw"/>
+                            <constraint firstItem="OIr-lS-Cup" firstAttribute="bottom" secondItem="qh3-Mu-WoX" secondAttribute="bottom" constant="20" id="KgB-B2-B1U"/>
+                            <constraint firstItem="xbX-sT-azA" firstAttribute="top" secondItem="YRH-H9-spp" secondAttribute="bottom" constant="20" id="Ndf-js-i9I"/>
+                            <constraint firstItem="xbX-sT-azA" firstAttribute="leading" secondItem="OIr-lS-Cup" secondAttribute="leading" constant="20" id="UJx-xW-Csm"/>
+                            <constraint firstItem="OIr-lS-Cup" firstAttribute="trailing" secondItem="xbX-sT-azA" secondAttribute="trailing" constant="20" id="XEN-dx-ywj"/>
+                            <constraint firstItem="OIr-lS-Cup" firstAttribute="trailing" secondItem="YRH-H9-spp" secondAttribute="trailing" constant="20" id="Ztm-Si-2yd"/>
+                            <constraint firstItem="OIr-lS-Cup" firstAttribute="trailing" secondItem="qh3-Mu-WoX" secondAttribute="trailing" constant="20" id="gtP-cT-GMY"/>
+                            <constraint firstItem="XjH-pd-l2N" firstAttribute="leading" secondItem="OIr-lS-Cup" secondAttribute="leading" constant="20" id="guO-VQ-kW2"/>
+                            <constraint firstItem="YRH-H9-spp" firstAttribute="leading" secondItem="OIr-lS-Cup" secondAttribute="leading" constant="20" id="lbz-d9-G0K"/>
+                            <constraint firstItem="OIr-lS-Cup" firstAttribute="trailing" secondItem="XjH-pd-l2N" secondAttribute="trailing" constant="20" id="o3j-88-QmH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OIr-lS-Cup"/>
+                    </view>
+                    <connections>
+                        <outlet property="txtDescription" destination="YRH-H9-spp" id="w3u-ou-7TD"/>
+                        <outlet property="txtTitle" destination="XjH-pd-l2N" id="v3i-xP-L6w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fzi-5S-UXp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3432.8000000000002" y="-1426.2368815592206"/>
         </scene>
         <!--Add New Item View Controller-->
         <scene sceneID="Pw1-Py-Z87">

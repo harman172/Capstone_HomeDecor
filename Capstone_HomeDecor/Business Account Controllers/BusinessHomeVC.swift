@@ -55,8 +55,6 @@ class BusinessHomeVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         let collection = db.collection("uploaded data").document(substring)
         collection.getDocument { (document, error) in
             if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                print("\(dataDescription)")
                 let title = document.data()!["title"] as! String
                 cell.cellTitle.text = title
             } else {
@@ -99,15 +97,17 @@ class BusinessHomeVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         return CGSize(width: width * 0.47, height: height * 0.2)
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let docId = String(items[indexPath.row].split(separator: "/").last!)
+        let destVC = storyboard?.instantiateViewController(identifier: "editViewController") as! EditViewController
+        destVC.id = docId
+        destVC.del_Home = self
+        navigationController?.pushViewController(destVC, animated: true)
     }
-    */
+
+    
+   
+    
 
 }

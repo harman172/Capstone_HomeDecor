@@ -53,14 +53,15 @@ class ContainerViewController: UIViewController {
     
     func transitionToNewContent(_ menuType: MenuType){
         let title = String(describing: menuType).capitalized
-        self.title = title
-//        self.navItem.title = title
+       
         
         if title == "Home"{
+            self.title = "Home"
             businessViewController.view.isHidden = false
             addNewViewController.view.isHidden = true
             businessViewController.loadImages()
         } else if title == "Addnewobject"{
+            self.title = "Add new object"
             businessViewController.view.isHidden = true
             addNewViewController.view.isHidden = false
         } else if title == "Logout"{
