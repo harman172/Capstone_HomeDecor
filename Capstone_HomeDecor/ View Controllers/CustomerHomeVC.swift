@@ -131,11 +131,6 @@ class CustomerHomeVC: UIViewController , UICollectionViewDelegate , UICollection
                         print("!!! document successfully downloaded !!!")
                             
                             print(url)
-                                                    
-//                        self.tempArray.append(item.fullPath)
-//                        self.items = self.tempArray
-//                        print("this count...\(self.items.count).....\(self.tempArray.count)")
-//                        self.collectionView.reloadData()
                     }
                         }
                         }
@@ -200,20 +195,16 @@ class CustomerHomeVC: UIViewController , UICollectionViewDelegate , UICollection
       }
       
       func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-          
-          let selectedItemName = items[indexPath.row]
-        print("array...\(items[indexPath.row])")
         
-         let docName = items[indexPath.row]
         
-        let substring = docName.split(separator: "/")
-        
-        let doc = substring.last!
-        print(doc)
+        let docID = String(items[indexPath.row].split(separator: "/").last!)
+//        let doc = substring.last!
+//        print(doc)
         
           let destVC = storyboard?.instantiateViewController(identifier: "objectDescVC") as! ObjectDescVC
 
-            destVC.imageName = String(doc)
+        destVC.docId = docID
+        destVC.imageName = items[indexPath.row]
             destVC.del_CustomerHomeVC = self
 
           navigationController?.pushViewController(destVC, animated: true)

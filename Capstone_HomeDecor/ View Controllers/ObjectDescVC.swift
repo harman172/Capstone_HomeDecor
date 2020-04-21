@@ -7,20 +7,23 @@
 //
 
 import UIKit
+import FirebaseFirestoreSwift
+import Firebase
+import Kingfisher
+
 var imgArr = [String]()
 class ObjectDescVC: UIViewController {
 
     @IBOutlet weak var ObjectImageView: UIImageView!
-    
-    
     @IBOutlet weak var descText: UITextView!
     
-    
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tryBtn: UIButton!
     @IBOutlet weak var saveBtn: UIButton!
     @IBOutlet weak var likeBtn: UIButton!
     
     var imageName:String?
+    var docId:String?
     var liked:Bool = false
     var del_CustomerHomeVC : CustomerHomeVC?
     
@@ -28,7 +31,36 @@ class ObjectDescVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        ObjectImageView.image = UIImage(named: imageName!)
+        showData()
+//        ObjectImageView.image = UIImage(named: imageName!)
+        
+    }
+    func showData(){
+        let db = Firestore.firestore()
+        let collection = db.collection("uploaded data").document(docId!)
+        collection.getDocument { (document, error) in
+            if let document = document, document.exists {
+                self.titleLabel.text = document.data()!["title"] as! String
+                self.descText.text = document.data()!["description"] as! String
+            } else {
+                print("Document does not exist")
+            }
+        }
+        
+        let imagePath = Storage.storage().reference().child(imageName!)
+        imagePath.downloadURL { (url, error) in
+            if let error = error{
+                print("error fetching url \(error.localizedDescription)")
+                return
+            }
+            
+            guard let url = url else{
+                return
+            }
+            let resource = ImageResource(downloadURL: url)
+            self.ObjectImageView.kf.setImage(with: resource)
+            
+        }
     }
     
 
@@ -37,7 +69,7 @@ class ObjectDescVC: UIViewController {
         if (!CustomerHomeVC.multipleObjMode){
             print("new VC created")
             let destVC = storyboard?.instantiateViewController(identifier: "arVC") as! ArVC
-            destVC.docToOpen = imageName
+            destVC.docToOpen = docId
             navigationController?.pushViewController(destVC, animated: true)
             
             
@@ -46,20 +78,20 @@ class ObjectDescVC: UIViewController {
              print("old VC used")
             navigationController?.popViewController(animated: true)
             del_CustomerHomeVC?.tryBtnPressed = true
-            del_CustomerHomeVC?.del_ARVC?.docToOpen = imageName
+            del_CustomerHomeVC?.del_ARVC?.docToOpen = docId
             
         }
-        print(imageName!)
+        print(docId!)
         
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         
         
-      let savedImage = saveImage(UIImage(named: imageName!)!)
+      let savedImage = saveImage(UIImage(named: docId!)!)
         
         if savedImage {
-            imgArr.append(imageName!)
+            imgArr.append(docId!)
             alert(title: "Saved !", message: "Image Saved Successfully", buttonTitle: "OK")
         }
         else{
@@ -92,7 +124,7 @@ class ObjectDescVC: UIViewController {
             return false
         }
         do {
-            try data.write(to: directory.appendingPathComponent("\(imageName!).png")!)
+            try data.write(to: directory.appendingPathComponent("\(docId!).png")!)
             return true
         } catch {
             print(error.localizedDescription)
