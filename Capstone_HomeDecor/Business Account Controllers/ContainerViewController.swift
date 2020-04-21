@@ -64,6 +64,8 @@ class ContainerViewController: UIViewController {
             self.title = "Add new object"
             businessViewController.view.isHidden = true
             addNewViewController.view.isHidden = false
+            addNewViewController.clearFields()
+            
         } else if title == "Logout"{
             do {
                 let domain = Bundle.main.bundleIdentifier!

@@ -29,6 +29,7 @@ class AddNewItemViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         txtDescription.delegate = self
         
+        
         // Do any additional setup after loading the view.
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -36,6 +37,12 @@ class AddNewItemViewController: UIViewController, UITextViewDelegate {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(userTapped))
         self.view.addGestureRecognizer(gesture)
         
+    }
+    func clearFields(){
+        txtTitle.text = nil
+        txtDescription.text = "Add description..."
+        objPathL.text = "Upload .scn file"
+        imageV.image = UIImage(systemName: "plus.rectangle.on.rectangle")
     }
     @objc func userTapped(){
         txtTitle.resignFirstResponder()
@@ -87,6 +94,14 @@ class AddNewItemViewController: UIViewController, UITextViewDelegate {
         
         guard validations() else {
             showAlert(message: "All fields are required!")
+            return
+        }
+        let ext = "\(objPathL.text!.split(separator: ".").last!)"
+
+        print("extention....\(ext)")
+
+        if (ext != "scn"){
+            showAlert(message: "Invalid Object file !!")
             return
         }
         

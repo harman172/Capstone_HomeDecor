@@ -19,6 +19,7 @@ class BusinessHomeVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("user id...\(Constants.ID)")
         
     }
     
