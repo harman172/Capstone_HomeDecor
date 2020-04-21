@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rYM-Ae-5sW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rYM-Ae-5sW">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,7 +36,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="j41-qS-spu">
-                                <rect key="frame" x="40" y="218.5" width="295" height="230"/>
+                                <rect key="frame" x="40" y="243.5" width="295" height="180"/>
                                 <subviews>
                                     <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LuQ-2N-5QS">
                                         <rect key="frame" x="0.0" y="-40" width="295" height="40"/>
@@ -77,8 +77,8 @@
                                             <segment title="Business"/>
                                         </segments>
                                     </segmentedControl>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7v1-Qz-zFi">
-                                        <rect key="frame" x="0.0" y="100" width="295" height="40"/>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7v1-Qz-zFi">
+                                        <rect key="frame" x="0.0" y="95" width="295" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="svS-Cu-jdJ"/>
                                         </constraints>
@@ -87,7 +87,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEK-qC-yRl">
-                                        <rect key="frame" x="0.0" y="150" width="295" height="40"/>
+                                        <rect key="frame" x="0.0" y="100" width="295" height="40"/>
                                         <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="H4B-om-bBG"/>
@@ -101,7 +101,7 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ST-U9-IL0">
-                                        <rect key="frame" x="0.0" y="200" width="295" height="30"/>
+                                        <rect key="frame" x="0.0" y="150" width="295" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account yet?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gfv-uj-oeV">
                                                 <rect key="frame" x="0.0" y="0.0" width="188" height="30"/>
@@ -303,25 +303,22 @@
                                     <size key="itemSize" width="170" height="140"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="gridCell" id="ohx-j5-FgV" customClass="BusinessCollectionViewCell" customModule="Capstone_HomeDecor" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="170" height="180"/>
+                                        <rect key="frame" x="5" y="5" width="170" height="180"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rA8-3P-To9">
                                             <rect key="frame" x="0.0" y="0.0" width="170" height="180"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="table" translatesAutoresizingMaskIntoConstraints="NO" id="cDc-jo-qCX">
-                                                    <rect key="frame" x="10" y="5" width="150" height="130"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="130" id="HsM-Sr-EpL"/>
-                                                    </constraints>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="table" translatesAutoresizingMaskIntoConstraints="NO" id="cDc-jo-qCX">
+                                                    <rect key="frame" x="10" y="5" width="150" height="140"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWy-zQ-9N1">
-                                                    <rect key="frame" x="10" y="145" width="150" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <rect key="frame" x="10" y="155" width="150" height="25"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -333,6 +330,7 @@
                                                 <constraint firstItem="zWy-zQ-9N1" firstAttribute="leading" secondItem="rA8-3P-To9" secondAttribute="leading" constant="10" id="EUm-D3-zRf"/>
                                                 <constraint firstItem="cDc-jo-qCX" firstAttribute="leading" secondItem="rA8-3P-To9" secondAttribute="leading" constant="10" id="Krw-HR-0Wr"/>
                                                 <constraint firstAttribute="trailing" secondItem="cDc-jo-qCX" secondAttribute="trailing" constant="10" id="aJh-Zg-R8k"/>
+                                                <constraint firstAttribute="bottom" secondItem="zWy-zQ-9N1" secondAttribute="bottom" id="tiN-Q8-bqf"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="170" height="180"/>
@@ -501,7 +499,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="QvD-sZ-DQL">
@@ -549,7 +547,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="mSy-c4-Xr1"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -833,13 +831,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CzP-ql-vPN">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t99-kl-mJU">
-                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="26"/>
-                                <state key="normal" title="Delete">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t99-kl-mJU">
+                                <rect key="frame" x="335.5" y="10" width="29.5" height="29"/>
+                                <state key="normal" image="multiply" catalog="system">
                                     <color key="titleColor" red="0.062630452219999994" green="0.60919129849999998" blue="0.89807403090000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="32"/>
                                 </state>
                                 <connections>
                                     <action selector="deleteBtnPressed:" destination="4Wb-ib-Mgj" eventType="touchUpInside" id="66C-YK-MzK"/>
@@ -848,14 +846,12 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="tWt-WU-Q8t" firstAttribute="trailing" secondItem="t99-kl-mJU" secondAttribute="trailing" id="Zgi-69-WJ0"/>
+                            <constraint firstItem="tWt-WU-Q8t" firstAttribute="trailing" secondItem="t99-kl-mJU" secondAttribute="trailing" constant="10" id="58c-v0-bGd"/>
+                            <constraint firstItem="t99-kl-mJU" firstAttribute="top" secondItem="tWt-WU-Q8t" secondAttribute="top" constant="10" id="Scy-2T-XFJ"/>
                             <constraint firstItem="CzP-ql-vPN" firstAttribute="top" secondItem="tWt-WU-Q8t" secondAttribute="top" id="daV-TY-rTc"/>
-                            <constraint firstItem="tWt-WU-Q8t" firstAttribute="bottom" secondItem="CzP-ql-vPN" secondAttribute="bottom" constant="60" id="izR-rD-NM0"/>
-                            <constraint firstItem="tWt-WU-Q8t" firstAttribute="bottom" secondItem="t99-kl-mJU" secondAttribute="bottom" id="mOZ-EQ-bU0"/>
-                            <constraint firstItem="t99-kl-mJU" firstAttribute="top" secondItem="CzP-ql-vPN" secondAttribute="bottom" id="omC-Aw-fUQ"/>
+                            <constraint firstItem="tWt-WU-Q8t" firstAttribute="bottom" secondItem="CzP-ql-vPN" secondAttribute="bottom" id="izR-rD-NM0"/>
                             <constraint firstItem="CzP-ql-vPN" firstAttribute="leading" secondItem="tWt-WU-Q8t" secondAttribute="leading" id="vCi-x9-mmN"/>
                             <constraint firstItem="tWt-WU-Q8t" firstAttribute="trailing" secondItem="CzP-ql-vPN" secondAttribute="trailing" id="xSE-T4-yGT"/>
-                            <constraint firstItem="t99-kl-mJU" firstAttribute="leading" secondItem="tWt-WU-Q8t" secondAttribute="leading" id="xfQ-oP-Ly7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tWt-WU-Q8t"/>
                     </view>
@@ -881,7 +877,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Bch-Fj-oa3"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
                                 <state key="normal" title="Delete">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -895,7 +891,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="8Ex-WI-6S0"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
                                 <state key="normal" title="Update">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -1213,21 +1209,22 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.left.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="camera.circle" catalog="system" width="64" height="60"/>
-        <image name="chevron.down" catalog="system" width="64" height="36"/>
-        <image name="chevron.down.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="chevron.left.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="chevron.right.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="chevron.up" catalog="system" width="64" height="36"/>
-        <image name="chevron.up.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="arrow.left.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="camera.circle" catalog="system" width="128" height="121"/>
+        <image name="chevron.down" catalog="system" width="128" height="72"/>
+        <image name="chevron.down.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="chevron.left.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="chevron.right.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="chevron.up" catalog="system" width="128" height="72"/>
+        <image name="chevron.up.circle.fill" catalog="system" width="128" height="121"/>
         <image name="couch" width="1920" height="1080"/>
-        <image name="hand.thumbsup" catalog="system" width="64" height="64"/>
+        <image name="hand.thumbsup" catalog="system" width="128" height="128"/>
         <image name="ic_home" width="90" height="90"/>
-        <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
-        <image name="plus.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="plus.rectangle.fill" catalog="system" width="64" height="46"/>
-        <image name="rotate.left.fill" catalog="system" width="64" height="64"/>
+        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
+        <image name="multiply" catalog="system" width="128" height="111"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="plus.rectangle.fill" catalog="system" width="128" height="93"/>
+        <image name="rotate.left.fill" catalog="system" width="128" height="128"/>
         <image name="table" width="800" height="450"/>
     </resources>
 </document>

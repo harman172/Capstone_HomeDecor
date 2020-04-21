@@ -25,6 +25,11 @@ class EditViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         navigationItem.title = "Edit item"
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(userTapped))
+        gesture.numberOfTapsRequired = 1
+        self.view.addGestureRecognizer(gesture)
+        
         let db = Firestore.firestore()
         let collection = db.collection("uploaded data").document(id!)
         collection.getDocument { (document, error) in
@@ -35,6 +40,17 @@ class EditViewController: UIViewController {
                 print("Document does not exist")
             }
         }
+    }
+    
+    @objc func userTapped(){
+        txtTitle.resignFirstResponder()
+        txtDescription.resignFirstResponder()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print("called")
+        txtDescription.resignFirstResponder()
     }
     
     @IBAction func editButtonPressed(_ sender: UIButton) {
